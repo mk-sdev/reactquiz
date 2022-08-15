@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
+import './Game.css'
 
 
-
-function Game(props){
+function Game({props}){
   
     //here set the first question or in useEffect
     const [question, setQuestion] = useState('')
@@ -12,8 +12,8 @@ function Game(props){
     const [width, setWidth] = useState(0)
     let i=0
     useEffect(()=>{  
-    // if(i>0) return
-   console.log('props', props)
+    if(i>0) return
+   console.log('propsqq', props.handleclick)
     // const mathsRef = collection(db ,'maths')
     // console.log('maths', mathsRef.length);
     losu()
@@ -51,7 +51,7 @@ function Game(props){
     setInterval(()=>{
       
       setWidth(width=>width+0.1)
-      if(width===100){
+      if(width>=100){
         setWidth(0)
       }
     }, 10)
@@ -75,13 +75,14 @@ function Game(props){
     </div>
   
       <div>{qnr}</div>
-        {/* <div id="question">{props}</div> */}
+      <div id='q1' className='qcircle'></div> <div id='q2' className='qcircle'></div> <div id='q3' className='qcircle'></div> <div id='q4' className='qcircle'></div> <div id='q5' className='qcircle'></div>
+        <div id="question">question: {props.questions[qnr-1]}</div>
         <div id="answers">
           <button id="A" onClick={e=>{losu(); setQnr(qnr=>qnr+1)}} >A</button>
           <button id="B" onClick={e=>{losu(); setQnr(qnr=>qnr+1)}} >B</button>
           <button id="C" onClick={e=>{losu(); setQnr(qnr=>qnr+1)}} >C</button>
           <button id="D" onClick={e=>{losu(); setQnr(qnr=>qnr+1)}} >D</button>
-          {/* <button onClick={e=>handleclick(qnr)} >klik</button> */}
+          <button onClick={e=>props.handleclick(qnr)} >give up</button>
         </div>
       </div> 
       
@@ -89,8 +90,8 @@ function Game(props){
   
       <div>
         <div>your score is</div>
-        <button onClick={e=>{setQnr(1);  setWidth(0); setTime(10)}} >play again</button>
-        {/* <button onClick={props.handleclick}>choose another category</button> */}
+        <button onClick={e=>{setQnr(1);  setWidth(0); setTime(10); props.losuj()}} >play again</button>
+        <button onClick={props.handleclick}>choose another category</button>
       </div>
       }
       </>
