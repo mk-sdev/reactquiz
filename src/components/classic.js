@@ -2,10 +2,11 @@ import React, {useState, useEffect} from 'react'
 import './Game.css'
 
 
-function Game({props}){
+function Classic({props}){
   
     //here set the first question or in useEffect
-    const [question, setQuestion] = useState('')
+    // const [question, setQuestion] = useState('')
+    const [point, setPoint] = useState(0)
     //number of question, max is 5
     const [qnr, setQnr] = useState(1)
     const [time, setTime] = useState(10)
@@ -16,7 +17,7 @@ function Game({props}){
    console.log('propsqq', props.handleclick)
     // const mathsRef = collection(db ,'maths')
     // console.log('maths', mathsRef.length);
-    losu()
+    reset()
     interval1()
     interval2()
 
@@ -27,7 +28,7 @@ function Game({props}){
 
 
   
-  function losu(){
+  function reset(){
   // alert('a')
   // console.log('q');
   
@@ -60,9 +61,15 @@ function Game({props}){
   if(width>100){
     setWidth(0)
     setQnr(qnr=>qnr+1)
-    losu()
+    reset()
   }
 
+  function checkAnswer(e){
+
+   if(e===props.answers[qnr-1][4])
+  setPoint(point=>point+1)
+  
+  }
     return (
       <>
   
@@ -78,10 +85,14 @@ function Game({props}){
       <div id='q1' className='qcircle'></div> <div id='q2' className='qcircle'></div> <div id='q3' className='qcircle'></div> <div id='q4' className='qcircle'></div> <div id='q5' className='qcircle'></div>
         <div id="question">question: {props.questions[qnr-1]}</div>
         <div id="answers">
-          <button id="A" onClick={e=>{losu(); setQnr(qnr=>qnr+1)}} >A</button>
-          <button id="B" onClick={e=>{losu(); setQnr(qnr=>qnr+1)}} >B</button>
-          <button id="C" onClick={e=>{losu(); setQnr(qnr=>qnr+1)}} >C</button>
-          <button id="D" onClick={e=>{losu(); setQnr(qnr=>qnr+1)}} >D</button>
+          <button id="A" onClick={e=>{checkAnswer(e.target.value); reset(); setQnr(qnr=>qnr+1)}} value={props.answers[qnr-1][0]}>{props.answers[qnr-1][0]}</button>
+
+          <button id="B" onClick={e=>{checkAnswer(e.target.value); reset(); setQnr(qnr=>qnr+1)}} value={props.answers[qnr-1][1]}>{props.answers[qnr-1][1]}</button>
+
+          <button id="C" onClick={e=>{checkAnswer(e.target.value); reset(); setQnr(qnr=>qnr+1)}} value={props.answers[qnr-1][2]}>{props.answers[qnr-1][2]}</button>
+
+          <button id="D" onClick={e=>{checkAnswer(e.target.value); reset(); setQnr(qnr=>qnr+1)}} value={props.answers[qnr-1][3]}>{props.answers[qnr-1][3]}</button>
+
           <button onClick={e=>props.handleclick(qnr)} >give up</button>
         </div>
       </div> 
@@ -89,7 +100,8 @@ function Game({props}){
       : 
   
       <div>
-        <div>your score is</div>
+        <div>your score is {point}/5</div>
+        
         <button onClick={e=>{setQnr(1);  setWidth(0); setTime(10); props.losuj()}} >play again</button>
         <button onClick={props.handleclick}>choose another category</button>
       </div>
@@ -98,4 +110,4 @@ function Game({props}){
     )
   }
   
-  export default Game
+  export default Classic
