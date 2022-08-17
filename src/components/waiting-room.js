@@ -20,7 +20,7 @@ function losuj(){
   setQuestions({5:false})
   setShow(false)
   console.log(props.category)
-   let catRef = collection(db ,props.category)  
+   let catRef = collection(db, props.category)  
   //let catRef = collection(db, 'maths')       
   getDocs(catRef)
   .then((snapshot)=>{

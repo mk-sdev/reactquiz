@@ -1,0 +1,733 @@
+body {
+    // background-color: $color;
+    background-color: #03131d;
+
+}
+
+#powered {
+    display: block;
+    white-space: nowrap;
+    // background-color: red;
+    cursor: default;
+    font-family: consolas;
+    text-transform: uppercase;
+    text-shadow: 0 0px 10px #03e9f4;
+    position: absolute;
+    color: #03e9f4;
+    width: fit-content;
+    margin-inline: auto;
+    bottom: 40%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    animation: powered 5s ease-in-out;
+
+
+    transition: transform .4s, opacity .4s;
+}
+
+#play:focus+#powered,
+#play:focus~.atom {
+    opacity: 0;
+    // background: red !important;
+    transform: translate(-50%, 20px)
+}
+
+@keyframes powered {
+    0% {
+        opacity: 0;
+        bottom: 30%;
+    }
+
+    90% {
+        opacity: 0;
+        bottom: 30%;
+    }
+
+    100% {
+        opacity: 1 !important;
+        bottom: 40%;
+    }
+}
+
+#play {
+    margin: auto;
+    width: 200px;
+    height: 100px;
+    font-family: consolas;
+    color: #03e9f4;
+    background-color: transparent;
+    font-size: 2em;
+    // border: 1px solid rgb(3, 233, 244, .7);
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #03e9f4, inset 0 0 5px #03e9f4;
+
+    text-shadow: 0 0px 10px #03e9f4;
+    position: relative;
+    transition: transform .3s, box-shadow .3s, text-shadow .3s;
+
+    top: 25px;
+
+    // -webkit-box-reflect: below 10px;
+
+    &:hover {
+        cursor: pointer;
+
+        // background-color: red;
+        transform: scale(1.05);
+        // color: #bcecee;
+        text-shadow: 0 0 20px #03e9f4,
+            0 0 5px #bcecee;
+
+        box-shadow: 0 0 3px #bcecee, inset 0 0 3px #bcecee,
+            0 0 15px #03e9f4, inset 0 0 15px #03e9f4,
+        ;
+    }
+
+    &::before {
+        pointer-events: none;
+        position: absolute;
+        top: 100px;
+        left: 0;
+        right: 0;
+        content: '';
+
+        width: 100%;
+        height: 100%;
+        background-color: #03e9f4;
+        transform: perspective(1em) rotateX(10deg) scale(1, .4);
+        filter: blur(1.5em);
+        opacity: .3;
+        transition: opacity .3s
+    }
+
+    &:hover::before {
+        opacity: .6;
+    }
+
+    span {
+        filter: blur(.75px)
+    }
+
+    animation: start 4s;
+
+    &:focus {
+        animation: click .5s;
+        opacity: 0;
+        top: 50px
+    }
+
+}
+
+@keyframes click {
+    from {
+        opacity: 1;
+        top: 25px;
+    }
+
+    to {
+        opacity: 0;
+        top: 50px
+    }
+}
+
+@keyframes start {
+    0% {
+        opacity: 0
+    }
+
+    33% {
+        opacity: 1
+    }
+
+    35% {
+        opacity: .15;
+    }
+
+    37% {
+        opacity: 1
+    }
+
+    40% {
+        opacity: .15
+    }
+
+    43% {
+        opacity: 1;
+    }
+
+    68% {
+        opacity: 1
+    }
+
+    70% {
+        opacity: .15
+    }
+
+    73% {
+        opacity: 1;
+    }
+
+    86% {
+        opacity: 1
+    }
+
+    88% {
+        opacity: .15
+    }
+
+    90% {
+        opacity: 1
+    }
+}
+
+
+#l {
+    animation: startspan 4s;
+}
+
+#a {
+    animation: a1 4s linear 0s 1 //    a2 5s linear 4s infinite ;
+}
+
+@keyframes l2 {
+    0% {
+        opacity: 1
+    }
+
+    40% {
+        opacity: 1
+    }
+
+    41% {
+        opacity: .2
+    }
+
+    42% {
+        opacity: 1
+    }
+
+    90% {
+        opacity: 1
+    }
+
+    91% {
+        opacity: .2
+    }
+
+    92% {
+        opacity: 1
+    }
+
+    93% {
+        opacity: .2
+    }
+
+    94% {
+        opacity: 1
+    }
+
+    // from{
+    //     color: aqua
+    // }to{
+    //     color: red
+    // }
+}
+
+@keyframes a1 {
+    0% {
+        opacity: .2
+    }
+
+    94% {
+        opacity: .2
+    }
+
+    96% {
+        opacity: 1
+    }
+
+    98% {
+        opacity: .2
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+@keyframes startspan {
+    0% {
+        opacity: .2
+    }
+
+    50% {
+        opacity: .2
+    }
+
+    52% {
+        opacity: 1
+    }
+
+    54% {
+        opacity: .2
+    }
+
+    62% {
+        opacity: .2
+    }
+
+    64% {
+        opacity: 1
+    }
+}
+
+#p,
+#l,
+#a,
+#y {
+    display: inline-block;
+}
+
+// #play:hover #p{
+//    animation: rotatee 1s   ease-in-out infinite alternate-reverse;
+// }
+#p {
+
+    animation: startspan 4s;
+    // animation-delay: .1s;
+    // animation-direction: alternate-reverse;
+    // animation-iteration-count:  infinite;
+    transform-origin: 10% -10%;
+
+    transform: rotate(-5deg) translate(0px, 5px);
+
+}
+
+@keyframes rotatee {
+    from {
+        transform: rotate(20deg) translate(0px, 5px);
+        transform-origin: 10% -10%;
+
+    }
+
+    to {
+
+        transform: rotate(-5deg) translate(0px, 5px);
+        transform-origin: 10% -10%;
+    }
+
+}
+
+
+// .react{
+
+//     box-sizing: border-box;
+//     position: absolute;
+//     width: 90%;
+//     height: 200px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     bottom: 100px;
+// // background-color: red;
+//     .loader{
+//         position: absolute;
+//         width: 200px;
+//         height: 200px;
+//         // background-color: #fff;
+//         border-radius: 50%;
+//         animation: animate 2s linear infinite;
+
+//         @keyframes animate{
+//             0%{
+//                 transform: rotate(0deg) 
+//             }
+//             100%{
+//                 transform: rotate(360deg) 
+//             }
+//         }
+//         &:nth-child(2),
+//         &:nth-child(4)
+//         {
+//             animation-delay: -1s
+//         }
+//         i{
+//             position: absolute;
+//             top: 0;
+//             left: 50%;
+//             transform: translateX(-50%);
+//             width: 20px;
+//             height: 20px;
+//             background-color: #00fff9;
+//             border-radius: 50%;
+//             z-index: 100;
+//             box-shadow: 0 0 10px #00fff9,
+//             0 0 20px #00fff9,
+//             0 0 30px #00fff9,
+//             0 0 40px #00fff9,
+//             0 0 50px #00fff9,
+//             0 0 60px #00fff9,
+//             0 0 70px #00fff9,
+//             0 0 80px #00fff9,
+//             0 0 90px #00fff9,
+//             0 0 100px #00fff9;
+
+//         }
+//         span{
+//             position: absolute;
+//             inset: 20px;
+//             background-color: #03131d;;
+//             border-radius: 50%;
+//             z-index: 1;
+
+//         }
+//     }
+// }
+// .react .loader:nth-child(1)::before,
+// .react .loader:nth-child(2)::before{
+//     content: '';
+//     position: absolute;
+//     top: 0; 
+//     left: 0;
+//     width: 50%;
+//     height: 100%;
+//     background: linear-gradient(to top, transparent, rgba(0,255,249,0.4));
+//     background-size: 100px 180px;
+
+//     background-repeat: no-repeat;
+//     border-top-left-radius: 100px;
+//     border-bottom-left-radius: 100px;
+
+// }
+.atom {
+    transition: transform .4s, opacity .4s;
+
+    animation: react 5.25s ease-in-out;
+    @keyframes react {
+        0% {
+            opacity: 0;
+            bottom: 15%;
+        }
+
+        92% {
+            opacity: 0;
+            bottom: 15%;
+        }
+
+        100% {
+            opacity: 1 !important;
+            bottom: 20%;
+        }
+    }
+
+    position: absolute;
+    // background-color: yellow;
+    left: 50%;
+    display: block;
+    bottom: 20%;
+    width: 50px;
+    height: 50px;
+    transform: translate(-50%, 0);
+
+    .circle {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        // margin-left: 20px;
+        // margin-top: 0px;
+        left: 0;
+        top: 0;
+        border: 2px solid rgb(71, 245, 245);
+
+        border-bottom: 0px solid transparent;
+        border-radius: 50%;
+        color: white;
+        box-shadow:
+            0 0px 4px 0px aqua,
+            inset 0 0px 4px 0px aqua,
+            //    0  0px 10px 0px rgb(139, 245, 245),
+            //    inset 0 0px 10px 0px rgb(137, 228, 228),
+        ;
+
+        div {
+            box-shadow:
+                0px 0px 50px 0px aqua;
+
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            // transform: translate(-30%, -50%);
+            transform: auto;
+            background-color: aqua;
+            perspective-origin: -34% 100%;
+
+            animation: electron 1s infinite;
+
+            @keyframes electron {
+                from {
+                    transform: perspective(1em) scale(.7, 2) skewX(-60deg) rotateZ(-60deg) translate(0%, -80%);
+
+                }
+
+                to {
+                    transform: perspective(1em) scale(.7, 2) skewX(-60deg) rotateZ(-60deg) translate(0%, -80%);
+
+                }
+            }
+        }
+    }
+    #center{
+        width: 10%;
+        height: 10%;
+        position: absolute;
+        background-color: aqua;
+        box-shadow: 0 0 10px 2px aqua;
+        border-radius: 50%;
+        left: 53%;
+        top: 53%;
+        transform: translate(-40% ,-50%);
+    }
+}
+
+#div1 {
+
+    transform: perspective(1em) scale(1, 1) skewX(60deg) rotateZ(60deg);
+    animation: animate1 1s linear infinite;
+
+}
+
+@keyframes animate1 {
+    from {
+        transform: scale(.6, 1) skewX(50deg) rotateZ(0deg)
+    }
+
+    to {
+        transform: scale(.6, 1) skewX(50deg) rotateZ(360deg);
+    }
+}
+
+#div2 {
+
+    transform: perspective(1em) scale(1, .4) skewX(40deg) rotateZ(60deg);
+    animation: animate2 1s -1.2s linear infinite
+}
+
+@keyframes animate2 {
+    from {
+        transform: scale(.6, 1) skewX(-50deg) rotateZ(0deg)
+    }
+
+    to {
+        transform: scale(.6, 1) skewX(-50deg) rotateZ(360deg);
+    }
+}
+
+#div3 {
+
+    transform: perspective(1em) scale(1, .4) skewX(40deg) rotateZ(60deg);
+    animation: animate3 1s -2s linear infinite
+}
+
+@keyframes animate3 {
+    from {
+        transform: scale(1.5, .3) skewX(0deg) rotateZ(0deg)
+    }
+
+    to {
+        transform: scale(1.5, .3) skewX(0deg) rotateZ(360deg);
+    }
+}
+
+
+
+
+#stats{
+    position: fixed;
+    font-family: consolas;
+    font-size: 20px;
+    background-color: transparent;
+    letter-spacing: 2px;
+    padding: 5px 20px;
+    overflow: hidden;
+    color: aqua;
+    -webkit-box-reflect: below 1px linear-gradient(transparent);
+    transition: 0.3s;
+    right: 30px;
+    bottom: 30px;
+outline: none;
+border: none;
+
+&:hover{
+    color: #111;
+    background-color: #21ebff;
+    box-shadow: 0 0 50px #21ebff;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0003);
+    transition-delay: .2s;
+    
+}
+    &:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        border-top: 2px solid #21ebff;
+        border-left: 2px solid #21ebff;
+        transition: 0.3s;
+        
+    }
+    &:hover:before{
+        width: 100%;
+        height: 100%;
+    }
+
+    &:after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 10px;
+        height: 10px;
+        border-right: 2px solid #21ebff;
+        border-bottom: 2px solid #21ebff;
+        transition: 0.5s;
+    }
+    &:hover:after{
+        width: 100%;
+        height: 100%;
+    }
+    animation: showstatsbtn .4s;
+}
+@keyframes showstatsbtn{
+    from{
+        right: -30px
+    }
+    to{
+        right: 30px
+    }
+}
+
+
+#modes {
+    margin: auto;
+    // background-color: yellow;
+    width: fit-content;
+    animation: start1 .4s;
+    position: relative;
+    top: -25px;
+
+    #pmode{
+        color: aqua;
+        font-family: consolas;
+        letter-spacing: 5px;
+        white-space: nowrap;
+        margin-inline: auto;
+        width: fit-content;
+        font-size: 35px;
+        text-shadow: 0 0 10px aqua,
+         0 0 5px aqua;
+
+        // background-color: red;
+    }
+
+#descriptions{
+    // background-color: aliceblue;
+    width: 90%;
+    height: 100%;
+    margin-top:120px;
+    margin-inline: auto;
+    // animation: showstatsbtn .4s;
+
+    p{
+        // background-color: red;
+        color: aqua ;
+        width: fit-content;
+        margin: auto;
+        font-family: consolas;
+        }
+}
+}
+
+@keyframes start1 {
+    from {
+        opacity: 0;
+        top: -10px;
+    }
+
+    to {
+        opacity: 1;
+        top: -25px;
+    }
+}
+#modesbtns{
+    width: 100%;
+    background-color: red;
+    display: grid;
+    
+}
+#classic,
+#survival {
+    width: 200px;
+    height: 100px;
+    // margin-inline: 20px;
+    color: #03e9f4;
+    background-color: transparent;
+    font-size: 2em;
+    // border: 1px solid rgb(3, 233, 244, .7);
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #03e9f4, inset 0 0 5px #03e9f4;
+
+
+    text-shadow: 0 0px 10px #03e9f4;
+    position: relative;
+    transition: transform .3s;
+    top: 5px;
+    // -webkit-box-reflect: below 10px;
+
+    &:hover {
+        // background-color: red;
+        transform: scale(1.05);
+        // color: #bcecee;
+        text-shadow: 0 0 20px #03e9f4,
+            0 0 5px #bcecee;
+
+        box-shadow: 0 0 3px #bcecee, inset 0 0 3px #bcecee,
+            0 0 15px #03e9f4, inset 0 0 15px #03e9f4;
+    }
+
+    &::before {
+        content: '';
+        pointer-events: none;
+        position: absolute;
+        top: 100px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #03e9f4;
+        transform: perspective(1em) rotateX(10deg) scale(1, .4);
+        filter: blur(1.5em);
+        opacity: .3;
+        transition: opacity .3s
+    }
+
+    &:hover::before {
+        opacity: .6;
+    }
+
+    span {
+        filter: blur(.75px)
+    }
+
+}
+#classic{
+    margin-right: 5px;
+}

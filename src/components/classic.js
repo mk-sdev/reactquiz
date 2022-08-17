@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import './Game.css'
+import '../scss/Game.scss'
 
 
 function Classic({props}){
