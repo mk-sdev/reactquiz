@@ -4,7 +4,7 @@ import Survival from './survival.js'
 import LoadingScreen from './loading-screen.js'
 import {db} from '../firebase-config.js' 
 import {collection, getDocs} from 'firebase/firestore'
-
+import '../scss/Waitingroom.scss'
 export default function WaitingRoom({props}) {
     
     const [questions, setQuestions] = useState({5: false})
@@ -16,10 +16,14 @@ export default function WaitingRoom({props}) {
     //hiding the loading screen and showing the game:
 const [show, setShow] = useState(false)
 const handleclick = props.handleclick
+
 function losuj(){
   setQuestions({5:false})
   setShow(false)
   console.log(props.category)
+
+  
+
    let catRef = collection(db, props.category)  
   //let catRef = collection(db, 'maths')       
   getDocs(catRef)
@@ -47,7 +51,7 @@ setNumbers(numbers)
 // console.log('qqq2',snapshot.docs[numbers[2]].data().content);
 // console.log('qqq1',snapshot.docs[numbers[1]].data().content);
 // console.log('qqq0',snapshot.docs[numbers[0]].data().content);
-console.log('numbers', numbers);
+// console.log('numbers', numbers);
 
   const q1=snapshot.docs[numbers[0]].data().content
   const q2=snapshot.docs[numbers[1]].data().content
@@ -97,6 +101,10 @@ console.log('undefined?',snapshot.docs[0].data().answer );
     setQuestions([q1, q2, q3, q4, q5])
 console.log('www',q1, q2, q3, q4, q5); 
   })
+  .catch(()=>{
+    console.log('lol');
+    
+  })
 // const size = 6
 //       let i =0
 //       let numbers=[]
@@ -132,12 +140,14 @@ console.log('www',q1, q2, q3, q4, q5);
    
   return (
   <>
+    <div id="Panel">
     <React.StrictMode> 
     {show===true && props.mode==='classical' && <Classic props={{handleclick, questions, losuj, answers}}/>}</React.StrictMode> 
 
     {show===true && props.mode==='hardcore' && <Survival props={{handleclick, questions, losuj, numbersarray, answers, length}}/>}
 
     {show===false && <LoadingScreen props={handleclick}/>}
+    </div>
     </>
   )
 }

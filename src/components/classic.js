@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import '../scss/Game.scss'
+// import '../scss/Game.css'
+import '../scss/Waitingroom.scss'
 
 
 function Classic({props}){
@@ -11,9 +12,13 @@ function Classic({props}){
     const [qnr, setQnr] = useState(1)
     const [time, setTime] = useState(10)
     const [width, setWidth] = useState(0)
+    const [color, setColor] = useState('green')
     let i=0
+    const [styleTab, setStyletab] = useState([])
+
     useEffect(()=>{  
-    if(i>0) return
+    
+if(i>0)return
    console.log('propsqq', props.handleclick)
     // const mathsRef = collection(db ,'maths')
     // console.log('maths', mathsRef.length);
@@ -36,14 +41,28 @@ function Classic({props}){
     // setQnr(qnr=>qnr+1)
     setTime(10)
      setWidth(0)
+
    
   }
   const interval1 =  ()=> {setInterval(()=>{
     // console.log('asasda');
 
     setTime(time=>time-1)
-    if(time===0)
+    if(time===0){
     setTime(10)
+      setColor('green')
+      // alert('a')
+    }
+    if(time===7){
+    setColor('lime')
+    // alert('a')
+    }
+
+
+    // switch(time){
+    //   case 5: setColor('red');
+    //   // default: setColor('green')
+    // }
     
     // clearInterval(interval1) nie działa
   }, 1000)}
@@ -60,14 +79,38 @@ function Classic({props}){
   
   if(width>100){
     setWidth(0)
+    
+    
+    const updatedTab = [...styleTab, {background: 'red', boxShadow: '0 0 15px orange', filter: 'blur(2px)', transition: 'background-color .5s'}];
+    setStyletab(updatedTab)
     setQnr(qnr=>qnr+1)
     reset()
   }
 
-  function checkAnswer(e){
+useEffect(()=>{
 
-   if(e===props.answers[qnr-1][4])
+   setColor(`rgb(${width*2}, ${(255-width*2)}, 0)`)
+ 
+},[width])
+useEffect(()=>{
+console.log('styleTab', styleTab, qnr);
+
+},[styleTab])
+  function checkAnswer(e){
+   
+
+
+   if(e===props.answers[qnr-1][4]){
+  
+  const updatedTab = [...styleTab, {background: 'lime', boxShadow: '0 0 15px lime', filter: 'blur(2px)', transition: 'background-color .5s'}];
+  setStyletab(updatedTab)
   setPoint(point=>point+1)
+
+   }
+   else{
+    const updatedTab = [...styleTab, {background: 'red', boxShadow: '0 0 15px orange', filter: 'blur(2px)', transition: 'background-color .5s'}];
+  setStyletab(updatedTab)
+   }
   
   }
     return (
@@ -75,15 +118,22 @@ function Classic({props}){
   
   
   
+      <div id="circles">
+        <div id='q1' className='qcircle' style={styleTab[0]} ></div> 
+        <div id='q2' className='qcircle' style={styleTab[1]}></div> 
+        <div id='q3' className='qcircle' style={styleTab[2]}></div> 
+        <div id='q4' className='qcircle' style={styleTab[3]}></div> 
+        <div id='q5' className='qcircle' style={styleTab[4]}></div>
+      </div>
     {qnr<6 ?  <div>
-      <div id="counting">time: {time<0 ?  setTime(10) : time}</div>
-    <div style={{width: '500px', height: '5px', border: '1px solid black'}}>
-      <div style={ {background: 'black', width: `${width}%`, height: '100%'}}></div>
+    <div className='timeWrapper' style={{width: '100%', height: '10px', filter: 'blur(2px)'}}>
+      <div className='progres' style={ {background: color, width: `${width}%`, height: '100%'}}></div>
     </div>
+    <div id="counting">{'>'}time: {time<0 ?  setTime(10) : time}s</div>
   
-      <div>{qnr}</div>
-      <div id='q1' className='qcircle'></div> <div id='q2' className='qcircle'></div> <div id='q3' className='qcircle'></div> <div id='q4' className='qcircle'></div> <div id='q5' className='qcircle'></div>
-        <div id="question">question: {props.questions[qnr-1]}</div>
+   
+
+        <div id="question">{props.questions[qnr-1]}</div>
         <div id="answers">
           <button id="A" onClick={e=>{checkAnswer(e.target.value); reset(); setQnr(qnr=>qnr+1)}} value={props.answers[qnr-1][0]}>{props.answers[qnr-1][0]}</button>
 
@@ -93,17 +143,26 @@ function Classic({props}){
 
           <button id="D" onClick={e=>{checkAnswer(e.target.value); reset(); setQnr(qnr=>qnr+1)}} value={props.answers[qnr-1][3]}>{props.answers[qnr-1][3]}</button>
 
-          <button onClick={e=>props.handleclick(qnr)} >give up</button>
         </div>
+        <button id="quit" onClick={e=>props.handleclick(qnr)} >quit</button>
+
       </div> 
       
       : 
   
       <div>
-        <div>your score is {point}/5</div>
+         {/* <div id="circles2">
+      <div id='q1' className='qcircle qcircle1' style={styleTab[0]}></div> 
+      <div id='q2' className='qcircle' style={styleTab[1]}></div> 
+      <div id='q3' className='qcircle' style={styleTab[2]}></div> 
+      <div id='q4' className='qcircle' style={styleTab[3]}></div> 
+      <div id='q5' className='qcircle' style={styleTab[4]}></div>
+      </div> */}
+
+        <div id='score'>your score is {point}/5</div>
         
-        <button onClick={e=>{setQnr(1);  setWidth(0); setTime(10); props.losuj()}} >play again</button>
-        <button onClick={props.handleclick}>choose another category</button>
+        <button id="again" onClick={e=>{setQnr(1);  setWidth(0); setTime(10); props.losuj()}} >play again</button>
+        <button id="anothercat" onClick={props.handleclick}>choose another category</button>
       </div>
       }
       </>

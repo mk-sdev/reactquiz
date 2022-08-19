@@ -1,7 +1,9 @@
-import { setSelectionRange } from '@testing-library/user-event/dist/utils';
+// import { setSelectionRange } from '@testing-library/user-event/dist/utils';
 import React, { Component } from 'react'
 import {db} from '../firebase-config.js' 
 import {collection, getDocs, addDoc, updateDoc, doc, onSnapshot} from 'firebase/firestore'
+import '../scss/Waitingroom.scss'
+
 export default class Hardcore extends Component {
    constructor(props) {
     super(props);
@@ -17,7 +19,10 @@ export default class Hardcore extends Component {
        qnr: 1,
        score: 0,
        lives: 3,
-       mount: true
+       mount: true,
+       color: null,
+       red: 0,
+      green: 255,
     };
  }
 
@@ -61,10 +66,26 @@ export default class Hardcore extends Component {
               }
             })
 
+            if(this.state.lives===3){
+              document.querySelector('#heart3').classList.add("missed")
+            }
+            if(this.state.lives===2){
+              document.querySelector('#heart2').classList.add("missed")
+            }
+            if(this.state.lives===1){
+              document.querySelector('#heart1').classList.add("missed")
+            }
          }
+
+         this.setState({red: `${this.state.width*2}`})
+         this.setState({green: `${255-this.state.width*2}`})
+        //  console.log('green', this.state.green);
+         
+  this.setState({color: `rgb(${this.state.red}, ${this.state.green}, 0)`})
+
        }, 10)
        if(this.state.qn>=3)return
-
+      
      }
 
      clickfn=(e)=>{
@@ -80,7 +101,19 @@ export default class Hardcore extends Component {
           return {
             lives: prev.lives -1,
           }})
+
+          if(this.state.lives===3){
+            document.querySelector('#heart3').classList.add("missed")
+          }
+          if(this.state.lives===2){
+            document.querySelector('#heart2').classList.add("missed")
+          }
+          if(this.state.lives===1){
+            document.querySelector('#heart1').classList.add("missed")
+          }
       }
+
+     
 
       this.reset(); 
       this.setState(prev=>{
@@ -126,15 +159,6 @@ export default class Hardcore extends Component {
     console.log('size', this.state.length);
     console.log('answers', this.state.answers[0]);
 
-    // jeszcze dodać warunek że jak już wszystkie pytania się wyczerpałąy to nie dawać więcej
-    // do{
-    //   let number = Math.floor(Math.random() * size+1)
-    //   if(!this.state.numbers.includes(number)){
-    //     i++
-    // this.setState({questions: [...this.state.questions, number]})
-    // console.log('numberspo', this.state.questions);
-    //   }
-    // }while(i<2)
 }
 
      componentDidMount() {
@@ -142,8 +166,7 @@ export default class Hardcore extends Component {
        this.reset()
        this.interval1()
        this.interval2()
-      //  this.setState({answers: this.props.props.answers});
-      //  this.setState({questions: this.props.props.questions});
+
       }
       this.setState({mount: false})
 
@@ -159,13 +182,23 @@ export default class Hardcore extends Component {
   <div>{this.state.width}</div> */}
   {(this.state.lives>=1 && this.state.qnr<=this.state.length ) ?  
   <div>
-  <div>wszystkie pytania: {this.state.questions}</div>
+  {/* <div>wszystkie pytania: {this.state.questions}</div> */}
          <div>
       <div id="counting">time: { this.state.time }</div>
-    <div style={{width: '500px', height: '5px', border: '1px solid black'}}>
-      <div style={ {background: 'black', width: `${this.state.width}%`, height: '100%'}}></div>
+    <div className='timeWrapper' style={{width: '100%', height: '10px', filter: 'blur(2px)'}}>
+      <div className='progres' style={ {background: this.state.color, width: `${this.state.width}%`, height: '100%'}}></div>
     </div>
-  
+
+
+  {/* //iconmonstr.com */}
+  <div id="hearts">
+  <svg xmlns="http://www.w3.org/2000/svg" width="154"  viewBox="0 0 24 24"><path d="M18 1l-6 4-6-4-6 5v7l12 10 12-10v-7z" id="heart1" className='heart'/></svg>
+
+<svg xmlns="http://www.w3.org/2000/svg" width="154"  viewBox="0 0 24 24"><path d="M18 1l-6 4-6-4-6 5v7l12 10 12-10v-7z" id="heart2" className='heart' /></svg>
+ 
+  <svg xmlns="http://www.w3.org/2000/svg" width="154" viewBox="0 0 24 24"><path d="M18 1l-6 4-6-4-6 5v7l12 10 12-10v-7z" id="heart3" className='heart' /></svg>
+
+</div>
       <div>this is class component and this is question nr: {this.state.qnr}</div>
       <div>You have {this.state.lives} lives</div>
      
@@ -180,12 +213,13 @@ export default class Hardcore extends Component {
           <button id="D" onClick={e=>{this.clickfn(e.target.value)}} value={this.state.answers[this.state.qnr-1][3]}>{this.state.answers[this.state.qnr-1][3]}</button>
 
 
-          <button onClick={e=>this.state.handleclick(this.state.qnr)} >give up</button>
+         
         </div>
+        <button id="quit" onClick={e=>this.state.handleclick(this.state.qnr)} >quit</button>
       </div> 
-      score: {this.props.props.answers}
+      {/* score: {this.props.props.answers} */}
       <br></br>
-       score: {this.state.answers}
+       {/* score: {this.state.answers} */}
       </div>
       :
       <div>
@@ -194,8 +228,8 @@ export default class Hardcore extends Component {
       <div>
         <div>your score is {this.state.score}</div>
         <button onClick={e=>{this.setState({qnr: 1});  this.setState({width: 0}); this.setState({time: 10}) ;this.state.losuj(); this.setState({score: 0}); this.setState({lives:3}); 
-        setTimeout(()=>{this.setState({answers: this.props.props.answers})},500)}}>play again</button>
-        <button onClick={this.state.handleclick}>choose another category</button>
+        setTimeout(()=>{this.setState({answers: this.props.props.answers})},500)}} id="again">play again</button>
+        <button onClick={this.state.handleclick} id="anothercat">choose another category</button>
       </div>  </div> }
     
       </>

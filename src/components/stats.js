@@ -8,7 +8,7 @@ constructor (props){
   
     return (
      <>
-     <div id="wrapper">
+     <div id="wrapper" >
       <div id="light"></div>
       <div id="panel">S
       <button id="hidestats" onClick={this.props.props}>hdie stats</button>

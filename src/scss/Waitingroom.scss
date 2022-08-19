@@ -1,0 +1,238 @@
+#Panel{
+    // background-color: red;
+    animation: openstats 1s;
+overflow: hidden;
+    border-radius: 15px;
+    width: 70%;
+    height: 80%;
+    background-color: rgba(2, 87, 97, 0.7);
+    backdrop-filter: blur(5px);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-shadow: inset 1px 1px 35px 20px rgba(0,0,0,0.5);
+    // animation: hidepanel .4s
+}
+@keyframes hidepanel{
+    from{
+        opacity: 1
+    }
+    to{
+        opacity: 0
+    }
+}
+.timeWrapper{
+    border-top-left-radius: 50px;
+}
+@keyframes time{
+    from{
+        background-color: green;
+    }
+    to{
+        background-color: red;
+    }
+}
+
+#counting{
+    float: right;
+    // background-color: red;
+    font-family: Consolas;
+    font-size: 20px;
+    margin-top: 15px;
+    margin-right: 30px;
+    width: 120px
+}
+
+#circles{
+    // background-color: red;
+    display: flex;
+    position: absolute;
+    flex-direction: row;
+    left: 50%;
+    width: 100%;
+    max-width: 200px;
+    justify-content: space-between;
+    transform: translate(-50%);
+    top: 30px;
+    .qcircle{
+
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: rgb(0, 74, 74);
+        box-shadow: inset 0 0 12px black;
+    //  transition:  background-color .5s;
+        
+    }
+}
+.qcircles1{
+    transition: none !important
+}
+#question{
+    position: absolute;
+    bottom: 250px;
+    font-family: consolas;
+    margin-inline: auto;
+    width: fit-content;
+    max-width: 90%;
+    margin-top: 50px;
+    font-size: 1.5em;
+    cursor: default;
+}
+// .correct{
+//     background-color: green !important;
+// }
+#circles2{
+    @extend #circles;
+    top: 60px;
+}
+#score{
+    margin-top: 80px;
+    font-size: 2em;
+    font-family: consolas;
+    width: fit-content;
+    margin-inline: auto
+}
+#again{
+    position: fixed;
+    font-family: consolas;
+    font-size: 20px;
+    background-color: transparent;
+    letter-spacing: 2px;
+    padding: 5px 20px;
+    overflow: hidden;
+    color: aqua;
+    -webkit-box-reflect: below 1px linear-gradient(transparent);
+    transition: 0.3s;
+    right: 30px;
+    bottom: 30px;
+    width: 35%;
+height: 60px;
+
+outline: none;
+border: none;
+
+&:hover{
+    color: #111;
+    background-color: #21ebff;
+    box-shadow: 0 0 50px #21ebff;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0003);
+    transition-delay: .2s;
+    
+}
+    &:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        border-top: 2px solid #21ebff;
+        border-left: 2px solid #21ebff;
+        transition: 0.3s;
+        
+    }
+    &:hover:before{
+        width: 100%;
+        height: 100%;
+    }
+
+    &:after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 10px;
+        height: 10px;
+        border-right: 2px solid #21ebff;
+        border-bottom: 2px solid #21ebff;
+        transition: 0.5s;
+    }
+    &:hover:after{
+        width: 100%;
+        height: 100%;
+    }
+
+}
+#anothercat{
+    @extend #again;
+    left: 30px;
+}
+
+#answers{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: 60px;
+    width: 70%;
+    height: 30% ;
+    // background-color: red;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: space-around;
+    row-gap: 20px;
+    column-gap: 10px;
+
+    button{
+        cursor: pointer
+    }
+}
+#quit{
+    @extend #again;
+    left: 10px;
+    width: 10%;
+    height: 7%;
+    color: orange;
+    &:hover{
+        background-color: orange;
+        box-shadow: 0 0 50px orange;
+    }
+
+
+    &:before{
+    
+        border-top: 2px solid orange;
+        border-left: 2px solid orange;
+  
+        
+    }
+ 
+
+    &:after{
+       
+        border-right: 2px solid orange;
+        border-bottom: 2px solid orange;
+
+    }
+}
+#offline{
+    width: fit-content;
+    margin-inline: auto;
+    font-family: Consolas;
+    margin-top: 50vh;
+
+}
+#hearts{
+    // background-color: yellow;
+    width: 50%;
+    height: fit-content;
+}
+svg{
+    -webkit-filter: drop-shadow( 0px 0px 12px rgba(255, 3, 3, 0.7));
+    filter: drop-shadow( 0px 0px 12px rgba(255, 3, 3, 0.7));
+// background-color: green;
+    height: 25px;
+    width: 33%;
+    fill: red;
+    display: inline-block;
+    transition: fill .5s
+    /* Similar syntax to box-shadow */
+}
+.missed{
+    -webkit-filter: drop-shadow( 0px 0px 0px rgba(255, 3, 3, 0.0)) !important;
+    filter: drop-shadow( 0px 0px 0px rgba(255, 3, 3, 0.0)) !important;
+    fill: rgb(108, 107, 107);
+}
