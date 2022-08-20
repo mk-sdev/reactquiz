@@ -88,8 +88,33 @@ export default class Hardcore extends Component {
       
      }
 
-     clickfn=(e)=>{
+localfn = ()=>{
+  // alert('ff')
 
+  if (localStorage.nrSurvival) {
+    localStorage.nrSurvival = Number(localStorage.nrSurvival) + 1;
+  } else {
+    localStorage.nrSurvival = 1;
+  }
+
+ //sum of all points ever
+ if (localStorage.pointsSurvival) {
+  localStorage.pointsSurvival = Number(localStorage.pointsSurvival) + this.state.score;
+} else {
+  localStorage.pointsSurvival = this.state.score;
+}
+
+if (!localStorage.maxSurvival) {
+  localStorage.maxSurvival = this.state.score;
+} else if(this.state.score>localStorage.maxSurvival){
+  localStorage.maxSurvival = this.state.score;
+}
+  
+}
+
+     clickfn=(e)=>{
+     if ((this.state.lives===1 && e!==this.state.answers[this.state.qnr-1][4]) || this.state.qnr==this.state.length)  this.localfn()
+    //  alert('a')
       if(e===this.state.answers[this.state.qnr-1][4]){
         this.setState(prev=>{
           return {
@@ -170,7 +195,7 @@ export default class Hardcore extends Component {
       }
       this.setState({mount: false})
 
-   
+
     }
  stats=(e)=>{
   if(e)
@@ -178,10 +203,7 @@ export default class Hardcore extends Component {
   else
   document.querySelector('#stats').style.display='none'
 
-//   if(!(this.state.lives>=1 || this.state.qnr<=this.state.length ))
-// document.querySelector('#stats').style.display='block'
 
-// console.log(!(this.state.lives>=1 && this.state.qnr<=this.state.length ))
 }
 
 

@@ -93,6 +93,7 @@ useEffect(()=>{
   setTimeout(()=>{
     document.querySelector('#l').style.animation='l2 10s infinite';
   },7000)
+  window.localStorage.clear();
 },[])
 
   return (

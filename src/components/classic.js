@@ -96,10 +96,35 @@ useEffect(()=>{
 console.log('styleTab', styleTab, qnr);
 
 },[styleTab])
-  function checkAnswer(e){
+
+useEffect(()=>{
+  if(qnr>=6)
+  {
+    if (localStorage.nrClassic) {
+      localStorage.nrClassic = Number(localStorage.nrClassic) + 1;
+    } else {
+      localStorage.nrClassic = 1;
+    }
+
+    //sum of all points ever
+    if (localStorage.pointsClassic) {
+      localStorage.pointsClassic = Number(localStorage.pointsClassic) + point;
+    } else {
+      localStorage.pointsClassic = point;
+    }
    
+    if(point===5){
+   if(localStorage.classic5){
+    localStorage.classic5 = Number(localStorage.classic5) + 1;
+   }
+   else 
+   localStorage.classic5 = 1 }
 
 
+  }
+},[qnr])
+
+  function checkAnswer(e){
    if(e===props.answers[qnr-1][4]){
   
   const updatedTab = [...styleTab, {background: 'lime', boxShadow: '0 0 15px lime', filter: 'blur(2px)', transition: 'background-color .5s'}];

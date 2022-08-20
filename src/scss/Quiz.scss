@@ -1,5 +1,6 @@
 body {
     // background-color: $color;
+ 
     background-color: #03131d;
     color: aqua;
     margin: 0;
@@ -514,7 +515,7 @@ letter-spacing: 2px;
 
 .catbtn {
     cursor: pointer;
-
+text-transform: capitalize;
     width: 200px;
     height: 80px;
     backdrop-filter: blur(2px);
