@@ -70,9 +70,12 @@ const handleclick = () =>{
     setDisplaystatsBtn('block')
   //alert('a')
       setDisplaywaiting(false)
+  document.querySelector('#stats').style.display='block'
       
   },400)
- 
+  document.querySelector('#Panel2').style.animation='hidepanel .4s'
+  // document.querySelector('#stats').style.display='block'
+
   }
   function showStats(){
     setDisplaystats(true)

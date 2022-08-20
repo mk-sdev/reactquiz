@@ -10,7 +10,8 @@ constructor (props){
      <>
      <div id="wrapper" >
       <div id="light"></div>
-      <div id="panel">S
+      <div id="panel">
+        <div id="innerpanel"></div>
       <button id="hidestats" onClick={this.props.props}>hdie stats</button>
       </div>
       </div>

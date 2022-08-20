@@ -1,7 +1,11 @@
 body {
     // background-color: $color;
     background-color: #03131d;
-    color: aqua
+    color: aqua;
+    margin: 0;
+}
+*{
+    user-select: none
 }
 
 
@@ -96,6 +100,7 @@ body {
 
 
 #stats {
+    cursor: pointer;
     position: fixed;
     font-family: consolas;
     font-size: 20px;
@@ -203,6 +208,9 @@ body {
     }
 }
 @media only screen and (max-width: 510px){
+    #pcat{
+        font-size: 5vw !important;
+    }
     #modes{
         width: 100% !important;
 
@@ -257,6 +265,8 @@ body {
 
 
     #descriptions {
+    cursor: default;
+
         #idk:after {
             content: '|';
             animation: kreska 1s infinite;
@@ -285,7 +295,34 @@ body {
         height: 100%;
         margin-top:120px;
         margin-inline: auto;
+        text-shadow: 0px 0 10px aqua;
+        animation: threeD 8s infinite;
+@keyframes threeD{
+    0%{
+        text-shadow: 0px 0 10px aqua;
+    }
+    50%{
+        text-shadow: 0px 0 10px aqua;
 
+    }
+    51%{
+        text-shadow: 1px 1px 0px red;
+
+    }
+    52%{
+        text-shadow: 2px 2px 0px red;
+    }
+    53%{
+        text-shadow: -1px -1px 0px magenta;
+    }
+    54%{
+        text-shadow: -1px -1px 0px magenta;
+
+    }
+    55%{
+        text-shadow: 0px 0 10px aqua;
+    }
+}
         // animation: showstatsbtn .4s;
         #classicDes:before,
         #survivalDes:before {
@@ -308,6 +345,7 @@ body {
 }
 
 #pmode {
+    cursor: default;
     color: aqua;
     font-family: consolas;
     letter-spacing: 5px;
@@ -328,6 +366,7 @@ body {
 
 #classic,
 #survival {
+    cursor: pointer;
     width: 200px;
     height: 100px;
     // margin-inline: 20px;
@@ -340,7 +379,7 @@ body {
     outline: none;
     border-radius: 10px;
     box-shadow: 0 0 5px #03e9f4, inset 0 0 5px #03e9f4;
-
+letter-spacing: 2px;
 
     text-shadow: 0 0px 10px #03e9f4;
     position: relative;
@@ -380,7 +419,11 @@ body {
     }
 
     span {
-        filter: blur(.75px)
+        filter: blur(.75px);
+        // transform: scale(1.95) !important;
+        position: relative;
+        // top: 50%;
+        // left: 50%;
     }
 
 }
@@ -401,6 +444,16 @@ body {
     }
 }
 
+
+
+
+
+
+
+
+
+
+
 #cats {
     animation: start1 .4s;
     position: relative;
@@ -408,23 +461,63 @@ body {
 }
 
 #pcat {
-    @extend #pmode
+    @extend #pmode;
+    // width: 100% !important;
+    // background-color: orange;
 }
 #cats{
     margin-top: 25px;
-    
+    // background-color: red;
+    height: 85vh;
     #catsbtns{
         // @extend #modesbtns;
-        width: 90%;
-        margin-top: 50vh;
-        // height: fit-content;
-        transform: translate(0, -130%);
-        
+        position: absolute;
+        transform: translate(0, -50%);
+    // background-color: green;
+        width: 100%;
+        top: 55% !important;
+        display: flex;
+        flex-wrap: wrap;
+        // transform: translate(0, -130%);
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
     }
 }
+@media only screen and (max-width:400px){
+    .catbtn{
+        height: 70px !important;
+    }
+    #catbtns{
+        margin-top: 45% !important;
+    }
+   
+}
+@media only screen and (max-width:300px){
+ 
+    #stats{
+        // background-color: red;
+        font-size: 15px;
+        bottom: 10px;
+        right: 10px;
+    }
+    #changemode{
+        left: 10px !important;
+    }
+    #quit{
+        left: 10px !important;
+        font-size: 15px;
+        bottom: 10px;
+        // height: fit-content
+    }
+}
+
 .catbtn {
+    cursor: pointer;
+
     width: 200px;
     height: 80px;
+    backdrop-filter: blur(2px);
     background-color: rgba(0, 255, 255, .1);
 font-family: consolas;
 font-size: 20px;

@@ -140,7 +140,7 @@ console.log('www',q1, q2, q3, q4, q5);
    
   return (
   <>
-    <div id="Panel">
+    <div id="Panel2">
     <React.StrictMode> 
     {show===true && props.mode==='classical' && <Classic props={{handleclick, questions, losuj, answers}}/>}</React.StrictMode> 
 

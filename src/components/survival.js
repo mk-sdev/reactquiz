@@ -172,6 +172,18 @@ export default class Hardcore extends Component {
 
    
     }
+ stats=(e)=>{
+  if(e)
+  document.querySelector('#stats').style.display='block'
+  else
+  document.querySelector('#stats').style.display='none'
+
+//   if(!(this.state.lives>=1 || this.state.qnr<=this.state.length ))
+// document.querySelector('#stats').style.display='block'
+
+// console.log(!(this.state.lives>=1 && this.state.qnr<=this.state.length ))
+}
+
 
   render() {
  
@@ -181,14 +193,14 @@ export default class Hardcore extends Component {
         {/* <button onClick={e=>{this.test()}}>zmień</button>
   <div>{this.state.width}</div> */}
   {(this.state.lives>=1 && this.state.qnr<=this.state.length ) ?  
-  <div>
+  <div onClick={this.stats(true)} >
   {/* <div>wszystkie pytania: {this.state.questions}</div> */}
          <div>
-      <div id="counting">time: { this.state.time }</div>
+  
     <div className='timeWrapper' style={{width: '100%', height: '10px', filter: 'blur(2px)'}}>
       <div className='progres' style={ {background: this.state.color, width: `${this.state.width}%`, height: '100%'}}></div>
     </div>
-
+    <div id="counting">time: { this.state.time }</div>
 
   {/* //iconmonstr.com */}
   <div id="hearts">
@@ -199,10 +211,10 @@ export default class Hardcore extends Component {
   <svg xmlns="http://www.w3.org/2000/svg" width="154" viewBox="0 0 24 24"><path d="M18 1l-6 4-6-4-6 5v7l12 10 12-10v-7z" id="heart3" className='heart' /></svg>
 
 </div>
-      <div>this is class component and this is question nr: {this.state.qnr}</div>
-      <div>You have {this.state.lives} lives</div>
+      <div id="points">Score: {this.state.score}</div>
+      {/* <div>You have {this.state.lives} lives</div> */}
      
-        <div id="question">question conetnt: {this.state.questions[this.state.qnr - 1]}</div>
+        <div id="question">{this.state.questions[this.state.qnr - 1]}</div>
         <div id="answers">
           <button id="A" onClick={e=>{this.clickfn(e.target.value)}} value={this.state.answers[this.state.qnr-1][0]}>{this.state.answers[this.state.qnr-1][0]}</button>
 
@@ -222,14 +234,13 @@ export default class Hardcore extends Component {
        {/* score: {this.state.answers} */}
       </div>
       :
-      <div>
- 
+      <div onLoad={this.stats(false)}>
 
-      <div>
-        <div>your score is {this.state.score}</div>
+      <div  >
+        <div id="score" style={{marginTop: '10%'}}>your score is {this.state.score}</div>
         <button onClick={e=>{this.setState({qnr: 1});  this.setState({width: 0}); this.setState({time: 10}) ;this.state.losuj(); this.setState({score: 0}); this.setState({lives:3}); 
         setTimeout(()=>{this.setState({answers: this.props.props.answers})},500)}} id="again">play again</button>
-        <button onClick={this.state.handleclick} id="anothercat">choose another category</button>
+        <button onClick={  this.state.handleclick} id="anothercat">choose another category</button>
       </div>  </div> }
     
       </>

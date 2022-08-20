@@ -112,7 +112,15 @@ console.log('styleTab', styleTab, qnr);
   setStyletab(updatedTab)
    }
   
+  } 
+  function stats(e){
+    if(e)
+    document.querySelector('#stats').style.display='block'
+    else
+    document.querySelector('#stats').style.display='none'
+  
   }
+
     return (
       <>
   
@@ -125,11 +133,12 @@ console.log('styleTab', styleTab, qnr);
         <div id='q4' className='qcircle' style={styleTab[3]}></div> 
         <div id='q5' className='qcircle' style={styleTab[4]}></div>
       </div>
-    {qnr<6 ?  <div>
+    {qnr<6 ?  <div onClick={stats(true)}>
     <div className='timeWrapper' style={{width: '100%', height: '10px', filter: 'blur(2px)'}}>
       <div className='progres' style={ {background: color, width: `${width}%`, height: '100%'}}></div>
     </div>
-    <div id="counting">{'>'}time: {time<0 ?  setTime(10) : time}s</div>
+    <div id="points">points: {point}</div>
+    <div id="counting">time: {time<0 ?  setTime(10) : time}s</div>
   
    
 
@@ -150,7 +159,7 @@ console.log('styleTab', styleTab, qnr);
       
       : 
   
-      <div>
+      <div onClick={stats(false)}>
          {/* <div id="circles2">
       <div id='q1' className='qcircle qcircle1' style={styleTab[0]}></div> 
       <div id='q2' className='qcircle' style={styleTab[1]}></div> 
@@ -162,7 +171,7 @@ console.log('styleTab', styleTab, qnr);
         <div id='score'>your score is {point}/5</div>
         
         <button id="again" onClick={e=>{setQnr(1);  setWidth(0); setTime(10); props.losuj()}} >play again</button>
-        <button id="anothercat" onClick={props.handleclick}>choose another category</button>
+        <button id="anothercat" onClick={()=>props.handleclick()}>choose another category</button>
       </div>
       }
       </>

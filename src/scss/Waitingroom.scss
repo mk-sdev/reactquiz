@@ -1,3 +1,13 @@
+@media only screen and (max-width: 500px){
+    #Panel{
+        width: 100% !important;
+        height: 100% !important
+    }
+}
+#Panel2{
+    animation: openstats 1s;
+
+}
 #Panel{
     // background-color: red;
     animation: openstats 1s;
@@ -5,7 +15,7 @@ overflow: hidden;
     border-radius: 15px;
     width: 70%;
     height: 80%;
-    background-color: rgba(2, 87, 97, 0.7);
+    background-color: rgba(2, 87, 97, 1);
     backdrop-filter: blur(5px);
     position: absolute;
     left: 50%;
@@ -36,12 +46,15 @@ overflow: hidden;
 }
 
 #counting{
-    float: right;
+    // float: right;
     // background-color: red;
+    cursor: default;
+
+    position: absolute;
     font-family: Consolas;
     font-size: 20px;
     margin-top: 15px;
-    margin-right: 30px;
+   right: 0px !important;
     width: 120px
 }
 
@@ -55,7 +68,7 @@ overflow: hidden;
     max-width: 200px;
     justify-content: space-between;
     transform: translate(-50%);
-    top: 30px;
+    top: 10%;
     .qcircle{
 
         width: 25px;
@@ -72,14 +85,18 @@ overflow: hidden;
 }
 #question{
     position: absolute;
-    bottom: 250px;
+    top: 20%;
     font-family: consolas;
-    margin-inline: auto;
+    left: 50%;
+    transform: translate(-50%);
     width: fit-content;
-    max-width: 90%;
+    // max-width: 90%;
+    // width: 90%;
+    padding:auto !important;
     margin-top: 50px;
     font-size: 1.5em;
     cursor: default;
+    // background-color: red
 }
 // .correct{
 //     background-color: green !important;
@@ -89,13 +106,30 @@ overflow: hidden;
     top: 60px;
 }
 #score{
-    margin-top: 80px;
+    cursor: default;
+    
+        width: 100%;
+        text-align: center;
+   
+    // position: absolute;
+    // top: 30%;
+    // left: 50%;
+    // transform: translate(-50%);
     font-size: 2em;
     font-family: consolas;
     width: fit-content;
     margin-inline: auto
+
+ 
+}
+@media only screen and (max-width: 400px) {
+        #score{
+            font-size: 10vw;
+        }
 }
 #again{
+    cursor: pointer;
+
     position: fixed;
     font-family: consolas;
     font-size: 20px;
@@ -165,7 +199,7 @@ border: none;
     position: absolute;
     left: 50%;
     transform: translate(-50%);
-    bottom: 60px;
+    top: 50%;
     width: 70%;
     height: 30% ;
     // background-color: red;
@@ -181,32 +215,71 @@ border: none;
     }
 }
 #quit{
-    @extend #again;
-    left: 10px;
-    width: 10%;
-    height: 7%;
-    color: orange;
-    &:hover{
-        background-color: orange;
-        box-shadow: 0 0 50px orange;
-    }
+    cursor: pointer;
+
+    position: fixed;
+    font-family: consolas;
+    font-size: 20px;
+    background-color: transparent;
+    letter-spacing: 2px;
+    padding: 5px 20px;
+    overflow: hidden;
+    color: aqua;
+    -webkit-box-reflect: below 1px linear-gradient(transparent);
+    transition: 0.3s;
+ 
+    bottom: 30px;
+   
 
 
-    &:before{
+outline: none;
+border: none;
+left: 30px;
+width: 100px;
+// min-width: 50px;
+height: fit-content;
+color: orange;
+&:hover{
+    color: #111;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0003);
+    transition-delay: .2s;
+    background-color: orange;
+    box-shadow: 0 0 50px orange;
     
+}
+    &:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 10px;
+        height: 10px;
         border-top: 2px solid orange;
         border-left: 2px solid orange;
-  
+        transition: 0.3s;
         
     }
- 
+    &:hover:before{
+        width: 100%;
+        height: 100%;
+    }
 
     &:after{
-       
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 10px;
+        height: 10px;
         border-right: 2px solid orange;
         border-bottom: 2px solid orange;
-
+        transition: 0.5s;
     }
+    &:hover:after{
+        width: 100%;
+        height: 100%;
+    }
+
 }
 #offline{
     width: fit-content;
@@ -217,12 +290,16 @@ border: none;
 }
 #hearts{
     // background-color: yellow;
-    width: 50%;
+    position: absolute;
+    width: 150px;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%);
     height: fit-content;
 }
 svg{
-    -webkit-filter: drop-shadow( 0px 0px 12px rgba(255, 3, 3, 0.7));
-    filter: drop-shadow( 0px 0px 12px rgba(255, 3, 3, 0.7));
+    // -webkit-filter: drop-shadow( 0px 0px 12px rgba(255, 3, 3, 0.7));
+    // filter: drop-shadow( 0px 0px 12px rgba(255, 3, 3, 0.7));
 // background-color: green;
     height: 25px;
     width: 33%;
@@ -232,7 +309,59 @@ svg{
     /* Similar syntax to box-shadow */
 }
 .missed{
-    -webkit-filter: drop-shadow( 0px 0px 0px rgba(255, 3, 3, 0.0)) !important;
-    filter: drop-shadow( 0px 0px 0px rgba(255, 3, 3, 0.0)) !important;
-    fill: rgb(108, 107, 107);
+    // -webkit-filter: drop-shadow( 0px 0px 12px rgba(255, 3, 3, 0.0)) !important;
+    // filter: drop-shadow( 0px 0px 12px rgba(255, 3, 3, 0.0)) !important;
+    fill: rgb(54, 54, 54);
+}
+#A, #B, #C, #D{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: aqua;
+    position: relative;
+    font-family: consolas;
+    font-size: 1em;
+    // box-shadow: 0 15px 35px rgba(0, 0, 0, .2);
+    border: 2px solid rgba(255, 255, 255, .1);
+    // border-bottom: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 20px;
+    overflow: hidden;
+    z-index:1;
+    transition: .5s;
+
+    &:hover:before{
+        transform: skewX(45deg) translateX(150%)
+    }
+    // &:focus:before{
+    //     // transform: skewX(45deg) translateX(0)
+
+    // }
+    &:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(to left, rgba(255, 255, 255, .15), transparent);
+        transform: skewX(45deg) translateX(0);
+        transition: .5s
+    }
+
+
+}
+#points{
+    @extend #counting;
+    left: 30px;
+}
+
+@media only screen and (max-width: 910px){
+    #again, #anothercat{
+        left: 50%;
+        transform: translate(-50%);
+        width: 80%;
+    }
+    #anothercat{
+        bottom: 100px
+    }
 }
