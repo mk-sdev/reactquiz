@@ -6,7 +6,7 @@ import {db} from '../firebase-config.js'
 import {collection, getDocs} from 'firebase/firestore'
 import '../scss/Waitingroom.scss'
 export default function WaitingRoom({props}) {
-    
+    const [category, setCategory] = useState(props.category)
     const [questions, setQuestions] = useState({5: false})
     //the size of the collection (counting starting from 0):
     const [length, setLength] = useState()
@@ -24,7 +24,7 @@ function losuj(){
 
   
 
-   let catRef = collection(db, props.category)  
+   let catRef = collection(db, category)  
   //let catRef = collection(db, 'maths')       
   getDocs(catRef)
   .then((snapshot)=>{
@@ -144,7 +144,7 @@ console.log('www',q1, q2, q3, q4, q5);
     <React.StrictMode> 
     {show===true && props.mode==='classical' && <Classic props={{handleclick, questions, losuj, answers}}/>}</React.StrictMode> 
 
-    {show===true && props.mode==='hardcore' && <Survival props={{handleclick, questions, losuj, numbersarray, answers, length}}/>}
+    {show===true && props.mode==='hardcore' && <Survival props={{handleclick, questions, losuj, numbersarray, answers, length, category}}/>}
 
     {show===false && <LoadingScreen props={handleclick}/>}
     </div>

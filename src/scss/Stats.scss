@@ -41,10 +41,16 @@
     #light{
         width: 50vw !important
     }
+    #innerpanel{
+        grid-template-columns: 95% !important;
+        font-size: .9em;
+    }
 }
 #innerpanel{
     position: relative;
     // background-color: red;
+    padding-top: 10px;
+
     width: 100%;
     height: calc(100% - 70px);
     display: grid;
@@ -180,8 +186,8 @@ z-index:2;
 
     &:hover {
         color: #111;
-        background-color: tomato;
-        box-shadow: 0 0 50px tomato;
+        background-color: #21ebff;
+        box-shadow: 0 0 50px #21ebff;
         -webkit-box-reflect: below 1px linear-gradient(transparent, #0003);
         transition-delay: .2s;
 

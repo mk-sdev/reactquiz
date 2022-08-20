@@ -14,6 +14,7 @@ export default class Hardcore extends Component {
       numbers: this.props.props.numbersarray,
       answers: this.props.props.answers,
       length: this.props.props.length,
+      category: this.props.props.category,
        width: 0,
        time: 10,
        qnr: 1,
@@ -150,8 +151,8 @@ if (!localStorage.maxSurvival) {
       let i = 0
       
       if(this.state.numbers.length<this.state.length){
-      let mathsRef = collection(db ,'maths')        
-      getDocs(mathsRef)
+      let catRef = collection(db , this.state.category)        
+      getDocs(catRef)
       .then((snapshot)=>{
 
         do{

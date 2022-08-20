@@ -1,104 +1,9 @@
 body {
-    // background-color: $color;
- 
     background-color: #03131d;
     color: aqua;
     margin: 0;
 }
-*{
-    user-select: none
-}
-
-
-
-
-
-
-
-
-// .react{
-
-//     box-sizing: border-box;
-//     position: absolute;
-//     width: 90%;
-//     height: 200px;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     bottom: 100px;
-// // background-color: red;
-//     .loader{
-//         position: absolute;
-//         width: 200px;
-//         height: 200px;
-//         // background-color: #fff;
-//         border-radius: 50%;
-//         animation: animate 2s linear infinite;
-
-//         @keyframes animate{
-//             0%{
-//                 transform: rotate(0deg) 
-//             }
-//             100%{
-//                 transform: rotate(360deg) 
-//             }
-//         }
-//         &:nth-child(2),
-//         &:nth-child(4)
-//         {
-//             animation-delay: -1s
-//         }
-//         i{
-//             position: absolute;
-//             top: 0;
-//             left: 50%;
-//             transform: translateX(-50%);
-//             width: 20px;
-//             height: 20px;
-//             background-color: #00fff9;
-//             border-radius: 50%;
-//             z-index: 100;
-//             box-shadow: 0 0 10px #00fff9,
-//             0 0 20px #00fff9,
-//             0 0 30px #00fff9,
-//             0 0 40px #00fff9,
-//             0 0 50px #00fff9,
-//             0 0 60px #00fff9,
-//             0 0 70px #00fff9,
-//             0 0 80px #00fff9,
-//             0 0 90px #00fff9,
-//             0 0 100px #00fff9;
-
-//         }
-//         span{
-//             position: absolute;
-//             inset: 20px;
-//             background-color: #03131d;;
-//             border-radius: 50%;
-//             z-index: 1;
-
-//         }
-//     }
-// }
-// .react .loader:nth-child(1)::before,
-// .react .loader:nth-child(2)::before{
-//     content: '';
-//     position: absolute;
-//     top: 0; 
-//     left: 0;
-//     width: 50%;
-//     height: 100%;
-//     background: linear-gradient(to top, transparent, rgba(0,255,249,0.4));
-//     background-size: 100px 180px;
-
-//     background-repeat: no-repeat;
-//     border-top-left-radius: 100px;
-//     border-bottom-left-radius: 100px;
-
-// }
-
-
-
+*{user-select: none}
 
 #stats {
     cursor: pointer;
@@ -174,14 +79,6 @@ body {
     }
 }
 
-// @keyframes hidestatsbtn{
-//         from{
-//             right: 30px
-//         }
-//         to{
-//             right: -200px 
-//         }
-// }
 .T {
     animation: l2 10s infinite
 }
@@ -200,17 +97,21 @@ body {
 
 @media only screen and (max-width: 670px){
     #classic, #survival{
-        width: 40% !important
+        width: 37% !important
     }
     #modesbtns{
         width: 100% !important;
         min-width: 400px !important;
-        margin-top: 10vh !important
+        margin-top: 20vh !important;
+        // height: 20vh;
     }
 }
-@media only screen and (max-width: 510px){
+@media only screen and (max-width: 545px){
     #pcat{
-        font-size: 5vw !important;
+         font-size: 7vw !important;
+        white-space: normal !important;
+        display: block !important;
+        width: 100vw !important
     }
     #modes{
         width: 100% !important;
@@ -222,32 +123,29 @@ body {
     #modesbtns{
         width: 90vw !important;
         min-width: 0 !important;
-        // justify-content:space-between !important
-
-        // background-color: green !important;
     }
     #classic, #survival{
-        height: 70px !important;
+        height: 80px !important;
         &::before{
             top: 70px !important;
         }
 
         span{
-            font-size: 20px !important;
+            font-size: 60% !important;
         }
     }
     #descriptions{
         margin-top: 70px !important;
         width: 80% !important
     }
-   
 }
+
+
+
 #modes {
     opacity: 1;
     margin: auto;
-    // background-color: green;
     width: 80%;
-    // max-width: 100vw;
     animation: start1 .4s;
     position: relative;
     top: -1vh;
@@ -257,17 +155,13 @@ body {
         min-width: 500px;
         margin: auto;
         margin-top: 20vh;
-        // background-color: red;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-    
     }
-
 
     #descriptions {
     cursor: default;
-
         #idk:after {
             content: '|';
             animation: kreska 1s infinite;
@@ -277,21 +171,17 @@ body {
             0% {
                 opacity: 1
             }
-
             68% {
                 opacity: 1
             }
-
             70% {
                 opacity: 0
             }
-
             100% {
                 opacity: 0
             }
         }
 
-        // background-color: aliceblue;
         width: 90%;
         height: 100%;
         margin-top:120px;
@@ -304,11 +194,9 @@ body {
     }
     50%{
         text-shadow: 0px 0 10px aqua;
-
     }
     51%{
         text-shadow: 1px 1px 0px red;
-
     }
     52%{
         text-shadow: 2px 2px 0px red;
@@ -318,13 +206,12 @@ body {
     }
     54%{
         text-shadow: -1px -1px 0px magenta;
-
     }
     55%{
         text-shadow: 0px 0 10px aqua;
     }
 }
-        // animation: showstatsbtn .4s;
+
         #classicDes:before,
         #survivalDes:before {
             content: '>';
@@ -333,16 +220,13 @@ body {
         }
 
         p {
-            // background-color: red;
             color: aqua;
             width: fit-content;
-            // margin: auto;
             position: relative;
             font-family: consolas;
             float: left
         }
     }
-
 }
 
 #pmode {
@@ -357,44 +241,33 @@ body {
     text-shadow: 0 0 10px aqua,
         0 0 5px aqua;
     filter: blur(1px);
-    //  background-color: red;
-     
+    text-align: center; 
 }
-
-
-
 
 
 #classic,
 #survival {
+    margin-top: -15vh !important;
     cursor: pointer;
     width: 200px;
     height: 100px;
-    // margin-inline: 20px;
     margin: auto;
     color: #03e9f4;
     background-color: transparent;
     font-size: 2em;
-    // border: 1px solid rgb(3, 233, 244, .7);
     border: none;
     outline: none;
     border-radius: 10px;
     box-shadow: 0 0 5px #03e9f4, inset 0 0 5px #03e9f4;
 letter-spacing: 2px;
-
     text-shadow: 0 0px 10px #03e9f4;
     position: relative;
     transition: transform .3s;
 
-    // -webkit-box-reflect: below 10px;
-
     &:hover {
-        // background-color: red;
         transform: scale(1.05);
-        // color: #bcecee;
         text-shadow: 0 0 20px #03e9f4,
             0 0 5px #bcecee;
-
         box-shadow: 0 0 3px #bcecee, inset 0 0 3px #bcecee,
             0 0 15px #03e9f4, inset 0 0 15px #03e9f4;
     }
@@ -421,12 +294,8 @@ letter-spacing: 2px;
 
     span {
         filter: blur(.75px);
-        // transform: scale(1.95) !important;
         position: relative;
-        // top: 50%;
-        // left: 50%;
     }
-
 }
 
 #classic:hover #survival {
@@ -438,19 +307,11 @@ letter-spacing: 2px;
         opacity: 1;
         top: -1vh
     }
-
     to {
         opacity: 0;
         top: 2vh
     }
 }
-
-
-
-
-
-
-
 
 
 
@@ -463,23 +324,17 @@ letter-spacing: 2px;
 
 #pcat {
     @extend #pmode;
-    // width: 100% !important;
-    // background-color: orange;
 }
 #cats{
     margin-top: 25px;
-    // background-color: red;
     height: 85vh;
     #catsbtns{
-        // @extend #modesbtns;
         position: absolute;
         transform: translate(0, -50%);
-    // background-color: green;
         width: 100%;
         top: 55% !important;
         display: flex;
         flex-wrap: wrap;
-        // transform: translate(0, -130%);
         justify-content: center;
         align-items: center;
         gap: 30px;
@@ -497,7 +352,6 @@ letter-spacing: 2px;
 @media only screen and (max-width:300px){
  
     #stats{
-        // background-color: red;
         font-size: 15px;
         bottom: 10px;
         right: 10px;
@@ -509,7 +363,6 @@ letter-spacing: 2px;
         left: 10px !important;
         font-size: 15px;
         bottom: 10px;
-        // height: fit-content
     }
 }
 

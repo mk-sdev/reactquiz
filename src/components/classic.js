@@ -125,6 +125,7 @@ useEffect(()=>{
 },[qnr])
 
   function checkAnswer(e){
+    
    if(e===props.answers[qnr-1][4]){
   
   const updatedTab = [...styleTab, {background: 'lime', boxShadow: '0 0 15px lime', filter: 'blur(2px)', transition: 'background-color .5s'}];
