@@ -105,6 +105,9 @@ body {
         margin-top: 20vh !important;
         // height: 20vh;
     }
+    #descriptions{
+        margin-top: 70px !important;
+    }
 }
 @media only screen and (max-width: 545px){
     #pcat{
@@ -126,6 +129,8 @@ body {
     }
     #classic, #survival{
         height: 80px !important;
+        font-size: 5vw !important;
+
         &::before{
             top: 70px !important;
         }
@@ -135,7 +140,7 @@ body {
         }
     }
     #descriptions{
-        margin-top: 70px !important;
+       
         width: 80% !important
     }
 }
@@ -254,7 +259,7 @@ body {
     margin: auto;
     color: #03e9f4;
     background-color: transparent;
-    font-size: 2em;
+    font-size: 180%;
     border: none;
     outline: none;
     border-radius: 10px;
@@ -263,9 +268,9 @@ letter-spacing: 2px;
     text-shadow: 0 0px 10px #03e9f4;
     position: relative;
     transition: transform .3s;
-
+filter: blur(.75px);
     &:hover {
-        transform: scale(1.05);
+        transform: scale(1.02);
         text-shadow: 0 0 20px #03e9f4,
             0 0 5px #bcecee;
         box-shadow: 0 0 3px #bcecee, inset 0 0 3px #bcecee,
@@ -350,7 +355,9 @@ letter-spacing: 2px;
    
 }
 @media only screen and (max-width:300px){
- 
+ #classic, #survival{
+    height: 10vh !important
+ }
     #stats{
         font-size: 15px;
         bottom: 10px;

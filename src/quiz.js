@@ -130,8 +130,8 @@ useEffect(()=>{
     <p id="pmode">{`>`}CHOOSE <span className="T">T</span>HE MODE</p>
 
 <div id="modesbtns">
-    <button id='classic'  onClick={e=>{showCats('classical')}}><span>classic</span></button>
-    <button id='survival'  onClick={e=>{showCats('hardcore')}}><span>survival</span></button>
+    <button id='classic'  onClick={e=>{showCats('classical')}}>classic</button>
+    <button id='survival'  onClick={e=>{showCats('hardcore')}}>survival</button>
 </div>
     <div id="descriptions">
       <p id="classicDes"> Classic: The game ends when the player answers 5 questions or when the time is gone.</p>

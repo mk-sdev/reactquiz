@@ -69,12 +69,20 @@ if(i>0)return
   
   function interval2(){
     setInterval(()=>{
-      
+      //for some reason interval setting width works differently on firefox so script below is to fix this issue
+      if(typeof InstallTrigger == 'undefined'){
       setWidth(width=>width+0.1)
       if(width>=100){
         setWidth(0)
-      }
+      }}
+      else{
+      setWidth(width=>width+0.15)
+      if(width>=100){
+        setWidth(0)
+      }}
+
     }, 10)
+
   }
   
   if(width>100){
@@ -161,7 +169,7 @@ useEffect(()=>{
       </div>
     {qnr<6 ?  <div onClick={stats(true)}>
     <div className='timeWrapper' style={{width: '100%', height: '10px', filter: 'blur(2px)'}}>
-      <div className='progres' style={ {background: color, width: `${width}%`, height: '100%'}}></div>
+      <div className='progres' style={ {background: color, width: `${width}vw`, height: '100%'}}></div>
     </div>
     <div id="points">points: {point}</div>
     <div id="counting">time: {time<0 ?  setTime(10) : time}s</div>

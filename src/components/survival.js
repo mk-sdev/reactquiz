@@ -48,11 +48,19 @@ export default class Hardcore extends Component {
     interval2=()=>{
        setInterval(()=>{
         //  console.log('q', this.state.width);
-         
+        if(typeof InstallTrigger == 'undefined'){
          this.setState(prev=>{
           return {
             width: prev.width + 0.1,
-          }})
+          }})}
+          else{
+          this.setState(prev=>{
+            return {
+              width: prev.width + 0.15,
+            }})}
+
+
+          
          if(this.state.width>=100){
            this.setState({width: 0})
             this.setState(prev=>{
@@ -60,6 +68,8 @@ export default class Hardcore extends Component {
                 qnr: prev.qnr + 1
               }
             })
+
+            this.setState({time: 0})
 
             this.setState(prev=>{
               return {
