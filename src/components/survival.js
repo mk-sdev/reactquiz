@@ -1,4 +1,3 @@
-// import { setSelectionRange } from '@testing-library/user-event/dist/utils';
 import React, { Component } from 'react'
 import {db} from '../firebase-config.js' 
 import {collection, getDocs, addDoc, updateDoc, doc, onSnapshot} from 'firebase/firestore'
@@ -33,7 +32,6 @@ export default class Hardcore extends Component {
    }
 
    interval1 =  ()=> {setInterval(()=>{
-          // console.log('asasda');
       
           this.setState(prev=>{
             return {
@@ -42,12 +40,10 @@ export default class Hardcore extends Component {
           if(this.state.time===0)
           this.setState({time: 10})
           
-          // clearInterval(interval1) nie działa
         }, 1000)}
 
     interval2=()=>{
        setInterval(()=>{
-        //  console.log('q', this.state.width);
         if(typeof InstallTrigger == 'undefined'){
          this.setState(prev=>{
           return {
@@ -59,8 +55,6 @@ export default class Hardcore extends Component {
               width: prev.width + 0.15,
             }})}
 
-
-          
          if(this.state.width>=100){
            this.setState({width: 0})
             this.setState(prev=>{
@@ -70,7 +64,6 @@ export default class Hardcore extends Component {
             })
 
             this.setState({time: 0})
-
             this.setState(prev=>{
               return {
                 lives: prev.lives - 1
@@ -90,24 +83,20 @@ export default class Hardcore extends Component {
 
          this.setState({red: `${this.state.width*2}`})
          this.setState({green: `${255-this.state.width*2}`})
-        //  console.log('green', this.state.green);
          
   this.setState({color: `rgb(${this.state.red}, ${this.state.green}, 0)`})
 
        }, 10)
        if(this.state.qn>=3)return
-      
      }
 
 localfn = ()=>{
-  // alert('ff')
 
   if (localStorage.nrSurvival) {
     localStorage.nrSurvival = Number(localStorage.nrSurvival) + 1;
   } else {
     localStorage.nrSurvival = 1;
   }
-
  //sum of all points ever
  if (localStorage.pointsSurvival) {
   localStorage.pointsSurvival = Number(localStorage.pointsSurvival) + this.state.score;
@@ -120,12 +109,10 @@ if (!localStorage.maxSurvival) {
 } else if(this.state.score>localStorage.maxSurvival){
   localStorage.maxSurvival = this.state.score;
 }
-  
 }
-
      clickfn=(e)=>{
      if ((this.state.lives===1 && e!==this.state.answers[this.state.qnr-1][4]) || this.state.qnr==this.state.length)  this.localfn()
-    //  alert('a')
+
       if(e===this.state.answers[this.state.qnr-1][4]){
         this.setState(prev=>{
           return {
@@ -149,8 +136,6 @@ if (!localStorage.maxSurvival) {
           }
       }
 
-     
-
       this.reset(); 
       this.setState(prev=>{
         return {
@@ -167,11 +152,9 @@ if (!localStorage.maxSurvival) {
 
         do{
           let number = Math.floor(Math.random() * size)
-          // console.warn('number', this.state.numbers);
 
           if(!this.state.numbers.includes(number)){
             this.setState({numbers: [...this.state.numbers, number]})
-            
             this.setState({questions: [...this.state.questions, 
               snapshot.docs[number].data().content,
             ]})
@@ -183,18 +166,12 @@ if (!localStorage.maxSurvival) {
               snapshot.docs[number].data().D,
               snapshot.docs[number].data().answer]
 
-            ]})
-
-    // console.log('numbers', numbers);        
+            ]})       
             i++
           }
         }while(i<2)
       })
     }
-    console.log('numberssss', this.state.numbers.length);
-    console.log('size', this.state.length);
-    console.log('answers', this.state.answers[0]);
-
 }
 
      componentDidMount() {
@@ -202,10 +179,8 @@ if (!localStorage.maxSurvival) {
        this.reset()
        this.interval1()
        this.interval2()
-
       }
       this.setState({mount: false})
-
 
     }
  stats=(e)=>{
@@ -213,27 +188,20 @@ if (!localStorage.maxSurvival) {
   document.querySelector('#stats').style.display='block'
   else
   document.querySelector('#stats').style.display='none'
-
-
 }
 
-
   render() {
- 
-
     return (
         <>
-        {/* <button onClick={e=>{this.test()}}>zmień</button>
-  <div>{this.state.width}</div> */}
+
   {(this.state.lives>=1 && this.state.qnr<=this.state.length ) ?  
   <div onClick={this.stats(true)} >
-  {/* <div>wszystkie pytania: {this.state.questions}</div> */}
          <div>
   
     <div className='timeWrapper' style={{width: '100%', height: '10px', filter: 'blur(2px)'}}>
       <div className='progres' style={ {background: this.state.color, width: `${this.state.width}%`, height: '100%'}}></div>
     </div>
-    <div id="counting">time: { this.state.time }</div>
+    <div id="counting">time: { this.state.time }s</div>
 
   {/* //iconmonstr.com */}
   <div id="hearts">
@@ -245,7 +213,6 @@ if (!localStorage.maxSurvival) {
 
 </div>
       <div id="points">Score: {this.state.score}</div>
-      {/* <div>You have {this.state.lives} lives</div> */}
      
         <div id="question">{this.state.questions[this.state.qnr - 1]}</div>
         <div id="answers">
@@ -256,19 +223,14 @@ if (!localStorage.maxSurvival) {
           <button id="C" onClick={e=>{this.clickfn(e.target.value)}} value={this.state.answers[this.state.qnr-1][2]}>{this.state.answers[this.state.qnr-1][2]}</button>
 
           <button id="D" onClick={e=>{this.clickfn(e.target.value)}} value={this.state.answers[this.state.qnr-1][3]}>{this.state.answers[this.state.qnr-1][3]}</button>
-
-
          
         </div>
         <button id="quit" onClick={e=>this.state.handleclick(this.state.qnr)} >quit</button>
       </div> 
-      {/* score: {this.props.props.answers} */}
       <br></br>
-       {/* score: {this.state.answers} */}
       </div>
       :
       <div onLoad={this.stats(false)}>
-
       <div  >
         <div id="score" style={{marginTop: '10%'}}>your score is {this.state.score}</div>
         <button onClick={e=>{this.setState({qnr: 1});  this.setState({width: 0}); this.setState({time: 10}) ;this.state.losuj(); this.setState({score: 0}); this.setState({lives:3}); 

@@ -5,7 +5,6 @@ constructor (props){
     super(props)
 }
   render() {
-  
     return (
      <>
      <div id="wrapper" >
@@ -24,14 +23,12 @@ constructor (props){
 
         <p>average score on survival mode:&nbsp;
         { localStorage.pointsSurvival ? (localStorage.pointsSurvival/localStorage.nrSurvival).toFixed(2) : '-'}</p>
-     
 
         <p>5/5 score on classic mode:&nbsp; 
         {localStorage.classic5 ? localStorage.classic5 : 0} </p>
    
         <p>the highest score on survival mode:&nbsp; 
           {localStorage.maxSurvival ? localStorage.maxSurvival : '-'} </p>
-
 
         </div>
       <button id="hidestats" onClick={this.props.props}>hide stats</button>

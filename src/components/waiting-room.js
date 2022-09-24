@@ -20,38 +20,24 @@ const handleclick = props.handleclick
 function losuj(){
   setQuestions({5:false})
   setShow(false)
-  console.log(props.category)
-
-  
 
    let catRef = collection(db, category)  
-  //let catRef = collection(db, 'maths')       
+      
   getDocs(catRef)
   .then((snapshot)=>{
-     console.log('jestem')
       let size = snapshot.docs.length -1
       setLength(size +1)
-      console.log('wielkość', size)
       
       let i =0
       let numbers=[]
     do{
       let number = Math.floor(Math.random() * size + 1)
       if(!numbers.includes(number)){
-        numbers.push(number)
-        console.log('number', number);
-        
-// console.log('numbers', numbers);        
+        numbers.push(number)     
         i++
       }
     }while(i<5)
 setNumbers(numbers)
-// console.log('qqq4',snapshot.docs[numbers[4]].data().content);
-// console.log('qqq3',snapshot.docs[numbers[3]].data().content);
-// console.log('qqq2',snapshot.docs[numbers[2]].data().content);
-// console.log('qqq1',snapshot.docs[numbers[1]].data().content);
-// console.log('qqq0',snapshot.docs[numbers[0]].data().content);
-// console.log('numbers', numbers);
 
   const q1=snapshot.docs[numbers[0]].data().content
   const q2=snapshot.docs[numbers[1]].data().content
@@ -95,29 +81,14 @@ setNumbers(numbers)
       snapshot.docs[numbers[4]].data().answer
     ]
 setAnswers([o1, o2, o3, o4, o5])
-console.log('odpowiedzi', o1, o2, o3, o4, o5);
-console.log('undefined?',snapshot.docs[0].data().answer );
 
     setQuestions([q1, q2, q3, q4, q5])
-console.log('www',q1, q2, q3, q4, q5); 
+
   })
   .catch(()=>{
-    console.log('lol');
-    
+    //
   })
-// const size = 6
-//       let i =0
-//       let numbers=[]
-//     do{
-//       let number = Math.floor(Math.random() * size+1)
-//       if(!numbers.includes(number)){
-//         numbers.push(number)
-// // console.log('numbers', numbers);        
-//         i++
-//       }
-//     }while(i<5)
-//     setNumbers(numbers)
-//     setQuestions([numbers[0], numbers[1],numbers[2],numbers[3],numbers[4]])
+
 }
     useEffect(()=>{
       losuj()
@@ -125,19 +96,14 @@ console.log('www',q1, q2, q3, q4, q5);
     },[])
 
     useEffect(()=>{
-      
-        
+  
         setTimeout(()=>{
-            // console.log('questions', questions);
-
         },10000)
         if(questions[5]!==false){
           setShow(true)
-      // console.log('piąte',questions[5])
           }
     },[questions])
 
-   
   return (
   <>
     <div id="Panel2">

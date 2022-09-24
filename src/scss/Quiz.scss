@@ -3,6 +3,7 @@ body {
     color: aqua;
     margin: 0;
 }
+
 *{user-select: none}
 
 #stats {
@@ -28,7 +29,6 @@ body {
         box-shadow: 0 0 50px #21ebff;
         -webkit-box-reflect: below 1px linear-gradient(transparent, #0003);
         transition-delay: .2s;
-
     }
 
     &:before {
@@ -41,7 +41,6 @@ body {
         border-top: 2px solid #21ebff;
         border-left: 2px solid #21ebff;
         transition: 0.3s;
-
     }
 
     &:hover:before {
@@ -73,7 +72,6 @@ body {
     from {
         right: -30px
     }
-
     to {
         right: 30px
     }
@@ -82,12 +80,12 @@ body {
 .T {
     animation: l2 10s infinite
 }
+
 @keyframes start1 {
     from {
         opacity: 0;
         top: 2vh;
     }
-
     to {
         opacity: 1;
         top: -1vh;
@@ -99,16 +97,18 @@ body {
     #classic, #survival{
         width: 37% !important
     }
+
     #modesbtns{
         width: 100% !important;
         min-width: 400px !important;
         margin-top: 20vh !important;
-        // height: 20vh;
     }
+
     #descriptions{
         margin-top: 70px !important;
     }
 }
+
 @media only screen and (max-width: 545px){
     #pcat{
          font-size: 7vw !important;
@@ -116,6 +116,7 @@ body {
         display: block !important;
         width: 100vw !important
     }
+
     #modes{
         width: 100% !important;
 
@@ -123,10 +124,12 @@ body {
             font-size: 7vw !important;
         }
     }
+
     #modesbtns{
         width: 90vw !important;
         min-width: 0 !important;
     }
+
     #classic, #survival{
         height: 80px !important;
         font-size: 5vw !important;
@@ -139,13 +142,11 @@ body {
             font-size: 60% !important;
         }
     }
+
     #descriptions{
-       
         width: 80% !important
     }
 }
-
-
 
 #modes {
     opacity: 1;
@@ -193,6 +194,7 @@ body {
         margin-inline: auto;
         text-shadow: 0px 0 10px aqua;
         animation: threeD 8s infinite;
+        
 @keyframes threeD{
     0%{
         text-shadow: 0px 0 10px aqua;
@@ -243,12 +245,10 @@ body {
     margin-inline: auto;
     width: fit-content;
     font-size: 35px;
-    text-shadow: 0 0 10px aqua,
-        0 0 5px aqua;
+    text-shadow: 0 0 6px aqua;
     filter: blur(1px);
     text-align: center; 
 }
-
 
 #classic,
 #survival {
@@ -269,6 +269,8 @@ letter-spacing: 2px;
     position: relative;
     transition: transform .3s;
 filter: blur(.75px);
+font-family: consolas;
+
     &:hover {
         transform: scale(1.02);
         text-shadow: 0 0 20px #03e9f4,
@@ -318,9 +320,6 @@ filter: blur(.75px);
     }
 }
 
-
-
-
 #cats {
     animation: start1 .4s;
     position: relative;
@@ -330,9 +329,11 @@ filter: blur(.75px);
 #pcat {
     @extend #pmode;
 }
+
 #cats{
     margin-top: 25px;
     height: 85vh;
+
     #catsbtns{
         position: absolute;
         transform: translate(0, -50%);
@@ -345,27 +346,37 @@ filter: blur(.75px);
         gap: 30px;
     }
 }
+
 @media only screen and (max-width:400px){
     .catbtn{
         height: 70px !important;
     }
+
     #catbtns{
         margin-top: 45% !important;
     }
-   
+
+    #changemode{
+        font-size: 15px;
+        bottom: 35px
+    }
 }
+
 @media only screen and (max-width:300px){
  #classic, #survival{
     height: 10vh !important
  }
+
     #stats{
         font-size: 15px;
         bottom: 10px;
         right: 10px;
     }
+
     #changemode{
         left: 10px !important;
     }
+
     #quit{
         left: 10px !important;
         font-size: 15px;
@@ -390,6 +401,7 @@ border: none;
 outline: none;
 color: aqua;
 -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+
     &:hover {
         background-color: aqua;
         color: #050801;
@@ -398,10 +410,12 @@ color: aqua;
             0 0 50px #03e9f4, 
             0 0 200px #03e9f4;
     }
+
     span{
         position: absolute;
         display: block;
     }
+
     span:nth-child(1){
         top: 0;
         left: -100%;
@@ -410,6 +424,7 @@ color: aqua;
         background: linear-gradient(90deg, transparent, #03e9f4);
         animation: animate11 2s linear infinite;
     }
+
     @keyframes animate11{
         0%{
             left: -100%;
@@ -424,9 +439,10 @@ color: aqua;
         right: 0;
         width: 2px;
         height: 100%;
-        background: linear-gradient(90deg, transparent, #03e9f4);
+        background: linear-gradient(180deg, transparent, #03e9f4);
         animation: animate12 2s .5s linear infinite;
     }
+
     @keyframes animate12{
         0%{
             top: -100%;
@@ -441,9 +457,10 @@ color: aqua;
         right: -100%;
         height: 2px;
         width: 100%;
-        background: linear-gradient(90deg, transparent, #03e9f4);
+        background: linear-gradient(270deg, transparent, #03e9f4);
         animation: animate13 2s 1s linear infinite;
     }
+
     @keyframes animate13{
         0%{
             right: -100%;
@@ -458,9 +475,10 @@ color: aqua;
         bottom: -100%;
         height: 100%;
         width: 2px;
-        background: linear-gradient(90deg, transparent, #03e9f4);
+        background: linear-gradient(0deg, transparent, #03e9f4);
         animation: animate14 2s 1.5s linear infinite;
     }
+
     @keyframes animate14{
         0%{
             bottom: -100%;

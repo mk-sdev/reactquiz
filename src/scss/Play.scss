@@ -3,7 +3,6 @@ $playtop: 20vh;
 #powered {
     display: block;
     white-space: nowrap;
-    // background-color: red;
     cursor: default;
     font-family: consolas;
     text-transform: uppercase;
@@ -16,14 +15,12 @@ $playtop: 20vh;
     left: 50%;
     transform: translate(-50%, 0);
     animation: powered 5s ease-in-out;
-
     transition: transform .4s, opacity .4s;
 }
 
 #play:focus+#powered,
 #play:focus~.atom {
     opacity: 0;
-    // background: red !important;
     transform: translate(-50%, 20px)
 }
 
@@ -32,12 +29,10 @@ $playtop: 20vh;
         opacity: 0;
         bottom: 10%;
     }
-
     90% {
         opacity: 0;
         bottom: 10%;
     }
-
     100% {
         opacity: 1 !important;
         bottom: 20%;
@@ -52,32 +47,22 @@ $playtop: 20vh;
     color: #03e9f4;
     background-color: transparent;
     font-size: 2em;
-    // border: 1px solid rgb(3, 233, 244, .7);
     border: none;
     outline: none;
     border-radius: 10px;
     box-shadow: 0 0 5px #03e9f4, inset 0 0 5px #03e9f4;
-
     text-shadow: 0 0px 10px #03e9f4;
     position: relative;
     transition: transform .3s, box-shadow .3s, text-shadow .3s;
-
     margin-top: $playtop;
-
-    // -webkit-box-reflect: below 10px;
 
     &:hover {
         cursor: pointer;
-
-        // background-color: red;
         transform: scale(1.05);
-        // color: #bcecee;
         text-shadow: 0 0 20px #03e9f4,
             0 0 5px #bcecee;
-
         box-shadow: 0 0 3px #bcecee, inset 0 0 3px #bcecee,
-            0 0 15px #03e9f4, inset 0 0 15px #03e9f4,
-        ;
+            0 0 15px #03e9f4, inset 0 0 15px #03e9f4;
     }
 
     &::before {
@@ -87,7 +72,6 @@ $playtop: 20vh;
         left: 0;
         right: 0;
         content: '';
-
         width: 100%;
         height: 100%;
         background-color: #03e9f4;
@@ -112,7 +96,6 @@ $playtop: 20vh;
         opacity: 0;
         top: 50px
     }
-
 }
 
 @keyframes click {
@@ -120,7 +103,6 @@ $playtop: 20vh;
         opacity: 1;
         top: 25px;
     }
-
     to {
         opacity: 0;
         top: 50px
@@ -131,52 +113,40 @@ $playtop: 20vh;
     0% {
         opacity: 0
     }
-
     33% {
         opacity: 1
     }
-
     35% {
         opacity: .15;
     }
-
     37% {
         opacity: 1
     }
-
     40% {
         opacity: .15
     }
-
     43% {
         opacity: 1;
     }
-
     68% {
         opacity: 1
     }
-
     70% {
         opacity: .15
     }
-
     73% {
         opacity: 1;
     }
-
     86% {
         opacity: 1
     }
-
     88% {
         opacity: .15
     }
-
     90% {
         opacity: 1
     }
 }
-
 
 #l {
     animation: startspan 4s;
@@ -190,35 +160,27 @@ $playtop: 20vh;
     0% {
         opacity: 1
     }
-
     40% {
         opacity: 1
     }
-
     41% {
         opacity: .2
     }
-
     42% {
         opacity: 1
     }
-
     90% {
         opacity: 1
     }
-
     91% {
         opacity: .2
     }
-
     92% {
         opacity: 1
     }
-
     93% {
         opacity: .2
     }
-
     94% {
         opacity: 1
     }
@@ -228,19 +190,15 @@ $playtop: 20vh;
     0% {
         opacity: .2
     }
-
     94% {
         opacity: .2
     }
-
     96% {
         opacity: 1
     }
-
     98% {
         opacity: .2
     }
-
     100% {
         opacity: 1
     }
@@ -250,23 +208,18 @@ $playtop: 20vh;
     0% {
         opacity: .2
     }
-
     50% {
         opacity: .2
     }
-
     52% {
         opacity: 1
     }
-
     54% {
         opacity: .2
     }
-
     62% {
         opacity: .2
     }
-
     64% {
         opacity: 1
     }
@@ -279,33 +232,20 @@ $playtop: 20vh;
     display: inline-block;
 }
 
-// #play:hover #p{
-//    animation: rotatee 1s   ease-in-out infinite alternate-reverse;
-// }
 #p {
-
     animation: startspan 4s;
-    // animation-delay: .1s;
-    // animation-direction: alternate-reverse;
-    // animation-iteration-count:  infinite;
     transform-origin: 10% -10%;
-
     transform: rotate(-5deg) translate(0px, 5px);
-
 }
 
 @keyframes rotatee {
     from {
         transform: rotate(20deg) translate(0px, 5px);
         transform-origin: 10% -10%;
-
     }
-
     to {
-
         transform: rotate(-5deg) translate(0px, 5px);
         transform-origin: 10% -10%;
     }
-
 }
 

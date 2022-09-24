@@ -2,7 +2,7 @@ import React from 'react'
 import "../scss/Quiz.scss"
 
 export default function Atom(props) {
-  // console.warn(props.props)
+
   return (
     <>
         <div className="atom" style={{animation: props.props}} >

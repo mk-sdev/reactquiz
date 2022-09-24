@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from 'react'
-// import '../scss/Game.css'
 import '../scss/Waitingroom.scss'
-
 
 function Classic({props}){
   
@@ -17,54 +15,29 @@ function Classic({props}){
     const [styleTab, setStyletab] = useState([])
 
     useEffect(()=>{  
-    
 if(i>0)return
-   console.log('propsqq', props.handleclick)
-    // const mathsRef = collection(db ,'maths')
-    // console.log('maths', mathsRef.length);
+
     reset()
     interval1()
     interval2()
-
-    
-    // console.log(i);
     i++
     },[])
-
-
   
   function reset(){
-  // alert('a')
-  // console.log('q');
-  
-    // setQuestion(  Math.random()  )
-    // setQnr(qnr=>qnr+1)
     setTime(10)
      setWidth(0)
-
-   
   }
+
   const interval1 =  ()=> {setInterval(()=>{
-    // console.log('asasda');
 
     setTime(time=>time-1)
     if(time===0){
     setTime(10)
       setColor('green')
-      // alert('a')
     }
     if(time===7){
     setColor('lime')
-    // alert('a')
     }
-
-
-    // switch(time){
-    //   case 5: setColor('red');
-    //   // default: setColor('green')
-    // }
-    
-    // clearInterval(interval1) nie działa
   }, 1000)}
   
   function interval2(){
@@ -80,14 +53,11 @@ if(i>0)return
       if(width>=100){
         setWidth(0)
       }}
-
     }, 10)
-
   }
   
   if(width>100){
     setWidth(0)
-    
     
     const updatedTab = [...styleTab, {background: 'red', boxShadow: '0 0 15px orange', filter: 'blur(2px)', transition: 'background-color .5s'}];
     setStyletab(updatedTab)
@@ -96,14 +66,8 @@ if(i>0)return
   }
 
 useEffect(()=>{
-
    setColor(`rgb(${width*2}, ${(255-width*2)}, 0)`)
- 
 },[width])
-useEffect(()=>{
-console.log('styleTab', styleTab, qnr);
-
-},[styleTab])
 
 useEffect(()=>{
   if(qnr>=6)
@@ -128,7 +92,6 @@ useEffect(()=>{
    else 
    localStorage.classic5 = 1 }
 
-
   }
 },[qnr])
 
@@ -145,21 +108,17 @@ useEffect(()=>{
     const updatedTab = [...styleTab, {background: 'red', boxShadow: '0 0 15px orange', filter: 'blur(2px)', transition: 'background-color .5s'}];
   setStyletab(updatedTab)
    }
-  
   } 
   function stats(e){
     if(e)
     document.querySelector('#stats').style.display='block'
     else
     document.querySelector('#stats').style.display='none'
-  
   }
 
     return (
       <>
-  
-  
-  
+    
       <div id="circles">
         <div id='q1' className='qcircle' style={styleTab[0]} ></div> 
         <div id='q2' className='qcircle' style={styleTab[1]}></div> 
@@ -173,8 +132,6 @@ useEffect(()=>{
     </div>
     <div id="points">points: {point}</div>
     <div id="counting">time: {time<0 ?  setTime(10) : time}s</div>
-  
-   
 
         <div id="question">{props.questions[qnr-1]}</div>
         <div id="answers">
@@ -194,13 +151,6 @@ useEffect(()=>{
       : 
   
       <div onClick={stats(false)}>
-         {/* <div id="circles2">
-      <div id='q1' className='qcircle qcircle1' style={styleTab[0]}></div> 
-      <div id='q2' className='qcircle' style={styleTab[1]}></div> 
-      <div id='q3' className='qcircle' style={styleTab[2]}></div> 
-      <div id='q4' className='qcircle' style={styleTab[3]}></div> 
-      <div id='q5' className='qcircle' style={styleTab[4]}></div>
-      </div> */}
 
         <div id='score'>your score is {point}/5</div>
         

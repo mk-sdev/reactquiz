@@ -6,17 +6,14 @@
     z-index: 99;
     top: 0;
     left: 0;
- 
 }
 
 @keyframes openstats{
     from{
         opacity: 0;
-       
     }
     to{
-        opacity: 1;
-       
+        opacity: 1; 
     }
 }
 
@@ -34,23 +31,25 @@
     transform: translate(-50%, -50%);
     box-shadow: inset 0px 0px 5px 0px rgba(139, 196, 239, 0.5);
 }
+
 @media screen and (max-width: 575px) {
     #panel{
         width: 90%
     }
+
     #light{
         width: 50vw !important
     }
+
     #innerpanel{
         grid-template-columns: 95% !important;
         font-size: .9em;
     }
 }
+
 #innerpanel{
     position: relative;
-    // background-color: red;
     padding-top: 10px;
-
     width: 100%;
     height: calc(100% - 70px);
     display: grid;
@@ -59,10 +58,12 @@
     grid-template-columns: 45% 45%;
     column-gap: 5%;
     overflow: auto;
+
     p{
         text-align: center;
     }
 }
+
 #light{margin-inline: auto;
     position: absolute;
     width: 30vw;
@@ -72,7 +73,6 @@
     background: rgb(1,0,19);
     background: rgb(1,0,19);
     background: linear-gradient(180deg, rgba(1,0,19,1) 0%, rgba(0,14,64,1) 100%);
-    // border: 1px solid rgb(3, 233, 244, .7);
     border: none;
     outline: none;
     border-radius: 10px 10px 0px 0px ;
@@ -80,16 +80,9 @@
     inset -5px 0px 5px -5px #696969 ,
     0px 5px 5px -3px rgb(185, 242, 255);
 border: none;
-
     text-shadow: 0 0px 10px #03e9f4;
     position: relative;
     transition: transform .3s, box-shadow .3s, text-shadow .3s;
-
-
-
-    // -webkit-box-reflect: below 10px;
-
-
 
     &::before {
         pointer-events: none;
@@ -123,8 +116,6 @@ z-index:2;
 
     animation: lightstart 4s;
 
-
-
     @keyframes lightstart {
         0% {
             opacity: 0
@@ -135,11 +126,9 @@ z-index:2;
         66% {
             opacity: 1
         }
-    
         68% {
             opacity: .15
         }
-    
         70% {
             opacity: 1
         }
@@ -152,8 +141,7 @@ z-index:2;
         78%{
             opacity: 1
         }
-    }
-    
+    } 
 }
 
 @keyframes hidestats{
@@ -192,7 +180,6 @@ z-index:2;
         box-shadow: 0 0 50px #21ebff;
         -webkit-box-reflect: below 1px linear-gradient(transparent, #0003);
         transition-delay: .2s;
-
     }
 
     &:before {
@@ -205,7 +192,6 @@ z-index:2;
         border-top: 2px solid #21ebff;
         border-left: 2px solid #21ebff;
         transition: 0.3s;
-
     }
 
     &:hover:before {
@@ -229,6 +215,7 @@ z-index:2;
         width: 100%;
         height: 100%;
     };
+
     right: 20px;
       font-family: consolas;
     font-size: 20px;
@@ -250,7 +237,6 @@ z-index:2;
         box-shadow: 0 0 50px #21ebff;
         -webkit-box-reflect: below 1px linear-gradient(transparent, #0003);
         transition-delay: .2s;
-
     }
 
     &:before {
@@ -263,7 +249,6 @@ z-index:2;
         border-top: 2px solid #21ebff;
         border-left: 2px solid #21ebff;
         transition: 0.3s;
-
     }
 
     &:hover:before {

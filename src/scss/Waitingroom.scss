@@ -1,16 +1,15 @@
-
 @media only screen and (max-width: 500px){
     #Panel{
         width: 100% !important;
         height: 100% !important
     }
 }
+
 #Panel2{
     animation: openstats 1s;
-
 }
+
 #Panel{
-    // background-color: red;
     animation: openstats 1s;
 overflow: hidden;
     border-radius: 15px;
@@ -24,8 +23,8 @@ overflow: hidden;
     position: absolute;
     transform: translate(-50%, -50%);
     box-shadow: inset 1px 1px 35px 20px rgba(0,0,0,0.5);
-    // animation: hidepanel .4s
 }
+
 @keyframes hidepanel{
     from{
         opacity: 1
@@ -34,9 +33,11 @@ overflow: hidden;
         opacity: 0
     }
 }
+
 .timeWrapper{
     border-top-left-radius: 50px;
 }
+
 @keyframes time{
     from{
         background-color: green;
@@ -47,10 +48,7 @@ overflow: hidden;
 }
 
 #counting{
-    // float: right;
-    // background-color: red;
     cursor: default;
-
     position: absolute;
     font-family: Consolas;
     font-size: 20px;
@@ -60,7 +58,6 @@ overflow: hidden;
 }
 
 #circles{
-    // background-color: red;
     display: flex;
     position: absolute;
     flex-direction: row;
@@ -70,20 +67,20 @@ overflow: hidden;
     justify-content: space-between;
     transform: translate(-50%);
     top: 10%;
-    .qcircle{
 
+    .qcircle{
         width: 25px;
         height: 25px;
         border-radius: 50%;
         background-color: rgb(0, 74, 74);
-        box-shadow: inset 0 0 12px black;
-    //  transition:  background-color .5s;
-        
+        box-shadow: inset 0 0 12px black;   
     }
 }
+
 .qcircles1{
     transition: none !important
 }
+
 #question{
     position: absolute;
     top: 20%;
@@ -92,46 +89,35 @@ overflow: hidden;
     transform: translate(-50%);
     width: 100%;
     text-align: center;
-    // max-width: 90%;
-    // width: 90%;
     padding:auto !important;
     margin-top: 50px;
     font-size: 1.5em;
     cursor: default;
-    // background-color: red
 }
-// .correct{
-//     background-color: green !important;
-// }
+
 #circles2{
     @extend #circles;
     top: 60px;
 }
+
 #score{
     cursor: default;
-    
         width: 100%;
         text-align: center;
-   
-    // position: absolute;
-    // top: 30%;
-    // left: 50%;
-    // transform: translate(-50%);
     font-size: 2em;
     font-family: consolas;
     width: fit-content;
     margin-inline: auto
-
- 
 }
+
 @media only screen and (max-width: 400px) {
         #score{
             font-size: 10vw;
         }
 }
+
 #again{
     cursor: pointer;
-
     position: fixed;
     font-family: consolas;
     font-size: 20px;
@@ -146,7 +132,6 @@ overflow: hidden;
     bottom: 30px;
     width: 35%;
 height: 60px;
-
 outline: none;
 border: none;
 
@@ -156,8 +141,8 @@ border: none;
     box-shadow: 0 0 50px #21ebff;
     -webkit-box-reflect: below 1px linear-gradient(transparent, #0003);
     transition-delay: .2s;
-    
 }
+
     &:before{
         content: '';
         position: absolute;
@@ -168,8 +153,8 @@ border: none;
         border-top: 2px solid #21ebff;
         border-left: 2px solid #21ebff;
         transition: 0.3s;
-        
     }
+
     &:hover:before{
         width: 100%;
         height: 100%;
@@ -186,12 +171,13 @@ border: none;
         border-bottom: 2px solid #21ebff;
         transition: 0.5s;
     }
+
     &:hover:after{
         width: 100%;
         height: 100%;
     }
-
 }
+
 #anothercat{
     @extend #again;
     left: 30px;
@@ -204,7 +190,6 @@ border: none;
     top: 50%;
     width: 70%;
     height: 30% ;
-    // background-color: red;
     margin-inline: auto;
     display: grid;
     grid-template-columns: 50% 50%;
@@ -216,9 +201,9 @@ border: none;
         cursor: pointer
     }
 }
+
 #quit{
     cursor: pointer;
-
     position: fixed;
     font-family: consolas;
     font-size: 20px;
@@ -229,26 +214,22 @@ border: none;
     color: aqua;
     -webkit-box-reflect: below 1px linear-gradient(transparent);
     transition: 0.3s;
- 
     bottom: 30px;
-   
-
-
 outline: none;
 border: none;
 left: 30px;
 width: 100px;
-// min-width: 50px;
 height: fit-content;
 color: orange;
+
 &:hover{
     color: #111;
     -webkit-box-reflect: below 1px linear-gradient(transparent, #0003);
     transition-delay: .2s;
     background-color: orange;
-    box-shadow: 0 0 50px orange;
-    
+    box-shadow: 0 0 50px orange;  
 }
+
     &:before{
         content: '';
         position: absolute;
@@ -259,8 +240,8 @@ color: orange;
         border-top: 2px solid orange;
         border-left: 2px solid orange;
         transition: 0.3s;
-        
     }
+
     &:hover:before{
         width: 100%;
         height: 100%;
@@ -277,17 +258,18 @@ color: orange;
         border-bottom: 2px solid orange;
         transition: 0.5s;
     }
+
     &:hover:after{
         width: 100%;
         height: 100%;
     }
+
 animation: showquitbtn .4s;
 
 @keyframes showquitbtn {
     from {
         left: -30px
     }
-
     to {
         left: 30px
     }
@@ -299,10 +281,9 @@ animation: showquitbtn .4s;
     margin-inline: auto;
     font-family: Consolas;
     margin-top: 50vh;
-
 }
+
 #hearts{
-    // background-color: yellow;
     position: absolute;
     width: 150px;
     top: 10%;
@@ -310,22 +291,19 @@ animation: showquitbtn .4s;
     transform: translate(-50%);
     height: fit-content;
 }
+
 svg{
-    // -webkit-filter: drop-shadow( 0px 0px 12px rgba(255, 3, 3, 0.7));
-    // filter: drop-shadow( 0px 0px 12px rgba(255, 3, 3, 0.7));
-// background-color: green;
     height: 25px;
     width: 33%;
     fill: red;
     display: inline-block;
     transition: fill .5s
-    /* Similar syntax to box-shadow */
 }
+
 .missed{
-    // -webkit-filter: drop-shadow( 0px 0px 12px rgba(255, 3, 3, 0.0)) !important;
-    // filter: drop-shadow( 0px 0px 12px rgba(255, 3, 3, 0.0)) !important;
     fill: rgb(54, 54, 54);
 }
+
 #A, #B, #C, #D{
     background-color: transparent;
     border: none;
@@ -334,9 +312,7 @@ svg{
     position: relative;
     font-family: consolas;
     font-size: 1em;
-    // box-shadow: 0 15px 35px rgba(0, 0, 0, .2);
     border: 2px solid rgba(255, 255, 255, .1);
-    // border-bottom: 1px solid rgba(255, 255, 255, .1);
     border-radius: 20px;
     overflow: hidden;
     z-index:1;
@@ -345,10 +321,7 @@ svg{
     &:hover:before{
         transform: skewX(45deg) translateX(150%)
     }
-    // &:focus:before{
-    //     // transform: skewX(45deg) translateX(0)
 
-    // }
     &:before{
         content: '';
         position: absolute;
@@ -360,9 +333,8 @@ svg{
         transform: skewX(45deg) translateX(0);
         transition: .5s
     }
-
-
 }
+
 #points{
     @extend #counting;
     left: 30px;
@@ -374,6 +346,7 @@ svg{
         transform: translate(-50%);
         width: 80%;
     }
+    
     #anothercat{
         bottom: 100px
     }
