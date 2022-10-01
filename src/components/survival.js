@@ -60,6 +60,23 @@ export default class Hardcore extends Component {
 
          if(this.state.width>=100){
            this.setState({width: 0})
+
+           if(this.state.answersTab.length===0 && this.state.lives>0){
+            this.setState({answersTab: [[this.state.questions[0],
+               this.state.qnr,
+                '-',
+               this.state.answers[0][4]
+              ]]})
+            // console.log('answersTab', [this.state.questions[this.state.qnr-1]])
+          } else if(this.state.answersTab.length>0 && this.state.lives>0){
+            this.setState({answersTab: [...this.state.answersTab,  [this.state.questions[this.state.qnr-1],
+               this.state.qnr,
+                '-',
+               this.state.answers[this.state.qnr-1][4]
+              ]]})
+          }
+
+
             this.setState(prev=>{
               return {
                 qnr: prev.qnr + 1
@@ -154,7 +171,7 @@ if (!localStorage.maxSurvival) {
           ]]})
       }
 
-      console.log(this.state.answersTab)
+      // console.log(this.state.answersTab)
 
       this.reset(); 
       this.setState(prev=>{

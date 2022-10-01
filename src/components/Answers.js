@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import '../scss/Answers.scss'
 
 export default function Answers(props) {
-    console.log('props',props.ansT)
+    // console.log('props',props.ansT)
     // useEffect(()=>{
 
     //     props.props.map(      )
