@@ -1,0 +1,161 @@
+#answersdiv{
+    width: 100vw; 
+    height: 100vh; 
+    background-color: #03131d;
+    z-index: 30; 
+    position: absolute; 
+    top: 0;
+
+
+}
+
+#answerss{
+    // 
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translate(-50%);
+    height: fit-content;
+    max-height: calc(100vh - 130px);
+    width: 100%;
+    font-size: 30px;
+    overflow: auto;
+
+    & > div:first-of-type{
+        margin-top: 20px
+    }
+}
+
+.answers{
+    // position: relative;
+    width: 50%;
+    min-width: 250px;
+    margin-bottom: 30px;
+    // background-color: red;
+    margin-inline: auto;
+
+    color: aqua;
+
+    font-family: consolas;
+
+    // border: 2px solid rgba(255, 255, 255, .1);
+    border-radius: 5px;
+
+    cursor: pointer;
+text-transform: capitalize;
+    // width: 200px;
+    // height: 80px;
+    backdrop-filter: blur(2px);
+    background-color: rgba(0, 255, 255, .1);
+
+font-size: 20px;
+letter-spacing: 2px;
+    overflow: hidden;
+    transition: .5s;
+position: relative;
+// border: none;
+outline: none;
+color: aqua;
+
+padding: 10px;
+// border-color: red 
+    div {
+        width: fit-content;
+// background-color: yellow !important;
+margin-inline: auto;
+
+
+margin-top: 10px;
+
+b{
+    font-size: 25px
+}
+
+
+    }
+    .Q{
+margin-top: 0;
+width: 100%
+    }
+}
+
+
+//margin-inline: auto
+
+#goback{
+    cursor: pointer;
+    position: fixed;
+    font-family: consolas;
+    font-size: 20px;
+    background-color: transparent;
+    letter-spacing: 2px;
+    padding: 5px 20px;
+    overflow: hidden;
+    color: aqua;
+    -webkit-box-reflect: below 1px linear-gradient(transparent);
+    transition: 0.3s;
+    left: 50%;
+    translate: -50%;
+    bottom: 30px;
+    width: 65%;
+    max-width: 300px;
+height: 60px;
+outline: none;
+border: none;
+
+&:hover{
+    color: #111;
+    background-color: #21ebff;
+    box-shadow: 0 0 50px #21ebff;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0003);
+    transition-delay: .2s;
+}
+
+    &:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        border-top: 2px solid #21ebff;
+        border-left: 2px solid #21ebff;
+        transition: 0.3s;
+    }
+
+    &:hover:before{
+        width: 100%;
+        height: 100%;
+    }
+
+    &:after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 10px;
+        height: 10px;
+        border-right: 2px solid #21ebff;
+        border-bottom: 2px solid #21ebff;
+        transition: 0.5s;
+    }
+
+    &:hover:after{
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: #03131d;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: aqua;
+    border-radius: 5px;
+}
+

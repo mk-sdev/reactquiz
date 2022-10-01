@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Answers from './Answers.js'
 import {db} from '../firebase-config.js' 
 import {collection, getDocs, addDoc, updateDoc, doc, onSnapshot} from 'firebase/firestore'
 import '../scss/Waitingroom.scss'
@@ -23,6 +24,8 @@ export default class Hardcore extends Component {
        color: null,
        red: 0,
       green: 255,
+      answersTab: [],
+      showAnswers: false
     };
  }
 
@@ -136,6 +139,23 @@ if (!localStorage.maxSurvival) {
           }
       }
 
+      if(this.state.answersTab.length===0){
+        this.setState({answersTab: [[this.state.questions[0],
+           this.state.qnr,
+            e,
+           this.state.answers[0][4]
+          ]]})
+        // console.log('answersTab', [this.state.questions[this.state.qnr-1]])
+      } else {
+        this.setState({answersTab: [...this.state.answersTab,  [this.state.questions[this.state.qnr-1],
+           this.state.qnr,
+            e,
+           this.state.answers[this.state.qnr-1][4]
+          ]]})
+      }
+
+      console.log(this.state.answersTab)
+
       this.reset(); 
       this.setState(prev=>{
         return {
@@ -172,6 +192,11 @@ if (!localStorage.maxSurvival) {
         }while(i<2)
       })
     }
+}
+
+answers = (e)=>{
+  // alert(this.state.showAnswers)
+  this.setState({showAnswers: !this.state.showAnswers})
 }
 
      componentDidMount() {
@@ -231,9 +256,14 @@ if (!localStorage.maxSurvival) {
       </div>
       :
       <div onLoad={this.stats(false)}>
+<button id='showAnswers' onClick={e=>{this.answers()}} >see the answers</button>
+
+{this.state.showAnswers && <Answers ans={this.answers} ansT={this.state.answersTab} />}
       <div  >
         <div id="score" style={{marginTop: '10%'}}>your score is {this.state.score}</div>
         <button onClick={e=>{this.setState({qnr: 1});  this.setState({width: 0}); this.setState({time: 10}) ;this.state.losuj(); this.setState({score: 0}); this.setState({lives:3}); 
+
+
         setTimeout(()=>{this.setState({answers: this.props.props.answers})},500)}} id="again">play again</button>
         <button onClick={  this.state.handleclick} id="anothercat">choose another category</button>
       </div>  </div> }

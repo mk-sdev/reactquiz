@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import '../scss/Waitingroom.scss'
+import Answers from './Answers'
 
 function Classic({props}){
   
@@ -13,6 +14,8 @@ function Classic({props}){
     const [color, setColor] = useState('green')
     let i=0
     const [styleTab, setStyletab] = useState([])
+    const [answersTab, setAnswersTab] = useState([])
+    const [showAnswers, setShowAnswers] = useState(false)
 
     useEffect(()=>{  
 if(i>0)return
@@ -59,6 +62,21 @@ if(i>0)return
   if(width>100){
     setWidth(0)
     
+    if(answersTab.length===0 && qnr <6){
+      setAnswersTab([[props.questions[qnr-1],
+         qnr,
+          '-',
+         props.answers[qnr-1][4],
+        ]])
+      console.log('answersTab', [props.questions[qnr-1]])
+    } else if(answersTab.length>0 && qnr <6) {
+      setAnswersTab([...answersTab,  [props.questions[qnr-1],
+         qnr,
+          '-',
+         props.answers[qnr-1][4]
+        ]])
+    }
+
     const updatedTab = [...styleTab, {background: 'red', boxShadow: '0 0 15px orange', filter: 'blur(2px)', transition: 'background-color .5s'}];
     setStyletab(updatedTab)
     setQnr(qnr=>qnr+1)
@@ -102,18 +120,43 @@ useEffect(()=>{
   const updatedTab = [...styleTab, {background: 'lime', boxShadow: '0 0 15px lime', filter: 'blur(2px)', transition: 'background-color .5s'}];
   setStyletab(updatedTab)
   setPoint(point=>point+1)
-
    }
    else{
     const updatedTab = [...styleTab, {background: 'red', boxShadow: '0 0 15px orange', filter: 'blur(2px)', transition: 'background-color .5s'}];
   setStyletab(updatedTab)
    }
+
+
+   if(answersTab.length===0){
+    setAnswersTab([[props.questions[qnr-1],
+       qnr,
+        e,
+       props.answers[qnr-1][4]
+      ]])
+    console.log('answersTab', [props.questions[qnr-1]])
+  } else {
+    setAnswersTab([...answersTab,  [props.questions[qnr-1],
+       qnr,
+        e,
+       props.answers[qnr-1][4]
+      ]])
+  }
+  
+  
+
   } 
+
+
   function stats(e){
     if(e)
     document.querySelector('#stats').style.display='block'
     else
     document.querySelector('#stats').style.display='none'
+  }
+
+  function answers(){
+    setShowAnswers(!showAnswers)
+    // alert('d')
   }
 
     return (
@@ -151,6 +194,12 @@ useEffect(()=>{
       : 
   
       <div onClick={stats(false)}>
+
+      <button id='showAnswers' onClick={e=>{answers()}} >see the answers</button>
+
+      {showAnswers && <Answers ansT={answersTab} ans={answers} />}
+      
+      
 
         <div id='score'>your score is {point}/5</div>
         
