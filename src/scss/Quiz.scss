@@ -145,7 +145,7 @@ body {
     }
 
     #descriptions{
-        width: 80% !important
+        width: 80% !important;
     }
 }
 
@@ -190,6 +190,7 @@ body {
         }
 
         width: 90%;
+        max-width:700px !important;
         height: 100%;
         margin-top:120px;
         margin-inline: auto;
