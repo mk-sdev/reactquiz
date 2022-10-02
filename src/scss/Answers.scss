@@ -47,36 +47,40 @@ text-transform: capitalize;
     // height: 80px;
     backdrop-filter: blur(2px);
     background-color: rgba(0, 255, 255, .1);
-
-font-size: 20px;
-letter-spacing: 2px;
+    letter-spacing: 2px;
     overflow: hidden;
     transition: .5s;
-position: relative;
-// border: none;
-outline: none;
-color: aqua;
+    position: relative;
+    outline: none;
+    color: aqua;
+    padding: 10px;
+    
+    font-size: 20px;
 
-padding: 10px;
-// border-color: red 
+
     div {
         width: fit-content;
-// background-color: yellow !important;
 margin-inline: auto;
-
-
 margin-top: 10px;
 
 b{
     font-size: 25px
 }
 
-
     }
     .Q{
 margin-top: 0;
 width: 100%
     }
+
+    @media screen and (max-width: 400px) {
+        font-size: 15px;
+
+        b{
+            font-size: 20px !important
+        }
+    }
+
 }
 
 
@@ -152,6 +156,10 @@ border: none;
 ::-webkit-scrollbar {
     width: 10px;
     background: #03131d;
+
+    @media screen and (max-width: 400px) {
+        width: 0 !important
+      }
 }
 
 ::-webkit-scrollbar-thumb {
