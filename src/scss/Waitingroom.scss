@@ -101,13 +101,18 @@ overflow: hidden;
 }
 
 #score{
+    position: absolute;
+  top: 20%;
+  left: 50%;
+  translate: -50%;
     cursor: default;
         width: 100%;
         text-align: center;
     font-size: 2em;
     font-family: consolas;
     width: fit-content;
-    margin-inline: auto
+    margin-inline: auto;
+    white-space: nowrap;
 }
 
 @media only screen and (max-width: 400px) {
@@ -360,8 +365,10 @@ $answers: rgb(220, 31, 138);
     // position: absolute;
     color: $answers;
     // top: 50%;
+    font-weight: bolder;
     left: 50%;
-    bottom: 150px;
+    top: 50%;
+    // bottom: 150px;
     transform: translate( -50%, -50%);
 
     &:hover{

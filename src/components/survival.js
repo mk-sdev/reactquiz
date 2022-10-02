@@ -236,6 +236,15 @@ answers = (e)=>{
     return (
         <>
 
+<div id="hearts">
+  <svg xmlns="http://www.w3.org/2000/svg" width="154"  viewBox="0 0 24 24"><path d="M18 1l-6 4-6-4-6 5v7l12 10 12-10v-7z" id="heart1" className='heart'/></svg>
+
+<svg xmlns="http://www.w3.org/2000/svg" width="154"  viewBox="0 0 24 24"><path d="M18 1l-6 4-6-4-6 5v7l12 10 12-10v-7z" id="heart2" className='heart' /></svg>
+ 
+  <svg xmlns="http://www.w3.org/2000/svg" width="154" viewBox="0 0 24 24"><path d="M18 1l-6 4-6-4-6 5v7l12 10 12-10v-7z" id="heart3" className='heart' /></svg>
+
+</div>
+
   {(this.state.lives>=1 && this.state.qnr<=this.state.length ) ?  
   <div onClick={this.stats(true)} >
          <div>
@@ -246,14 +255,7 @@ answers = (e)=>{
     <div id="counting">time: { this.state.time }s</div>
 
   {/* //iconmonstr.com */}
-  <div id="hearts">
-  <svg xmlns="http://www.w3.org/2000/svg" width="154"  viewBox="0 0 24 24"><path d="M18 1l-6 4-6-4-6 5v7l12 10 12-10v-7z" id="heart1" className='heart'/></svg>
 
-<svg xmlns="http://www.w3.org/2000/svg" width="154"  viewBox="0 0 24 24"><path d="M18 1l-6 4-6-4-6 5v7l12 10 12-10v-7z" id="heart2" className='heart' /></svg>
- 
-  <svg xmlns="http://www.w3.org/2000/svg" width="154" viewBox="0 0 24 24"><path d="M18 1l-6 4-6-4-6 5v7l12 10 12-10v-7z" id="heart3" className='heart' /></svg>
-
-</div>
       <div id="points">Score: {this.state.score}</div>
      
         <div id="question">{this.state.questions[this.state.qnr - 1]}</div>
@@ -277,7 +279,7 @@ answers = (e)=>{
 
 {this.state.showAnswers && <Answers ans={this.answers} ansT={this.state.answersTab} />}
       <div  >
-        <div id="score" style={{marginTop: '10%'}}>your score is {this.state.score}</div>
+        <div id="score" >your score is {this.state.score}</div>
         <button onClick={e=>{this.setState({qnr: 1});  this.setState({width: 0}); this.setState({time: 10}) ;this.state.losuj(); this.setState({score: 0}); this.setState({lives:3}); 
 
 

@@ -19,8 +19,8 @@
     max-height: calc(100vh - 130px);
     width: 100%;
     font-size: 30px;
-    overflow: auto;
-
+    overflow-y: auto;
+    overflow-x: hidden;
     & > div:first-of-type{
         margin-top: 20px
     }
