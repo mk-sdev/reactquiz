@@ -362,13 +362,10 @@ $answers: rgb(220, 31, 138);
 #showAnswers{
     @extend #again;
     position: fixed;
-    // position: absolute;
     color: $answers;
-    // top: 50%;
     font-weight: bolder;
     left: 50%;
     top: 50%;
-    // bottom: 150px;
     transform: translate( -50%, -50%);
 
     &:hover{
@@ -377,13 +374,12 @@ $answers: rgb(220, 31, 138);
     }
     
         &:before{
-            border-top: 2px solid $answers;
-            border-left: 2px solid $answers;
+            border-top: 3px solid $answers;
+            border-left: 3px solid $answers;
         }
     
         &:after{
-            border-right: 2px solid $answers;
-            border-bottom: 2px solid $answers;
+            border-right: 3px solid $answers;
+            border-bottom: 3px solid $answers;
         }
-
 }

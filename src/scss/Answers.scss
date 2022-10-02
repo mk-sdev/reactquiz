@@ -5,12 +5,9 @@
     z-index: 30; 
     position: absolute; 
     top: 0;
-
-
 }
 
 #answerss{
-    // 
     position: absolute;
     top: 10px;
     left: 50%;
@@ -21,30 +18,22 @@
     font-size: 30px;
     overflow-y: auto;
     overflow-x: hidden;
+
     & > div:first-of-type{
         margin-top: 20px
     }
 }
 
 .answers{
-    // position: relative;
     width: 50%;
     min-width: 250px;
     margin-bottom: 30px;
-    // background-color: red;
     margin-inline: auto;
-
     color: aqua;
-
     font-family: consolas;
-
-    // border: 2px solid rgba(255, 255, 255, .1);
     border-radius: 5px;
-
     cursor: pointer;
-text-transform: capitalize;
-    // width: 200px;
-    // height: 80px;
+    text-transform: capitalize;
     backdrop-filter: blur(2px);
     background-color: rgba(0, 255, 255, .1);
     letter-spacing: 2px;
@@ -54,23 +43,21 @@ text-transform: capitalize;
     outline: none;
     color: aqua;
     padding: 10px;
-    
     font-size: 20px;
 
-
     div {
-        width: fit-content;
-margin-inline: auto;
-margin-top: 10px;
+    width: fit-content;
+    margin-inline: auto;
+    margin-top: 10px;
 
-b{
+    b{
     font-size: 25px
-}
-
     }
+    }
+
     .Q{
-margin-top: 0;
-width: 100%
+    margin-top: 0;
+    width: 100%
     }
 
     @media screen and (max-width: 400px) {
@@ -80,11 +67,7 @@ width: 100%
             font-size: 20px !important
         }
     }
-
 }
-
-
-//margin-inline: auto
 
 #goback{
     cursor: pointer;
@@ -150,9 +133,6 @@ border: none;
     }
 }
 
-
-
-
 ::-webkit-scrollbar {
     width: 10px;
     background: #03131d;
@@ -166,4 +146,3 @@ border: none;
     background-color: aqua;
     border-radius: 5px;
 }
-

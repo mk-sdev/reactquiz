@@ -68,7 +68,6 @@ if(i>0)return
           '-',
          props.answers[qnr-1][4],
         ]])
-      console.log('answersTab', [props.questions[qnr-1]])
     } else if(answersTab.length>0 && qnr <6) {
       setAnswersTab([...answersTab,  [props.questions[qnr-1],
          qnr,
@@ -133,7 +132,6 @@ useEffect(()=>{
         e,
        props.answers[qnr-1][4]
       ]])
-    console.log('answersTab', [props.questions[qnr-1]])
   } else {
     setAnswersTab([...answersTab,  [props.questions[qnr-1],
        qnr,
@@ -141,11 +139,7 @@ useEffect(()=>{
        props.answers[qnr-1][4]
       ]])
   }
-  
-  
-
   } 
-
 
   function stats(e){
     if(e)
@@ -156,7 +150,6 @@ useEffect(()=>{
 
   function answers(){
     setShowAnswers(!showAnswers)
-    // alert('d')
   }
 
     return (
@@ -169,6 +162,7 @@ useEffect(()=>{
         <div id='q4' className='qcircle' style={styleTab[3]}></div> 
         <div id='q5' className='qcircle' style={styleTab[4]}></div>
       </div>
+
     {qnr<6 ?  <div onClick={stats(true)}>
     <div className='timeWrapper' style={{width: '100%', height: '10px', filter: 'blur(2px)'}}>
       <div className='progres' style={ {background: color, width: `${width}vw`, height: '100%'}}></div>
@@ -199,8 +193,6 @@ useEffect(()=>{
 
       {showAnswers && <Answers ansT={answersTab} ans={answers} />}
       
-      
-
         <div id='score'>your score is {point}/5</div>
         
         <button id="again" onClick={e=>{setQnr(1);  setWidth(0); setTime(10); props.losuj()}} >play again</button>

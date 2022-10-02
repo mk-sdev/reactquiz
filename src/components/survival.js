@@ -46,6 +46,7 @@ export default class Hardcore extends Component {
         }, 1000)}
 
     interval2=()=>{
+//for some reasonn interval works differently on firefox
        setInterval(()=>{
         if(typeof InstallTrigger == 'undefined'){
          this.setState(prev=>{
@@ -67,7 +68,6 @@ export default class Hardcore extends Component {
                 '-',
                this.state.answers[0][4]
               ]]})
-            // console.log('answersTab', [this.state.questions[this.state.qnr-1]])
           } else if(this.state.answersTab.length>0 && this.state.lives>0){
             this.setState({answersTab: [...this.state.answersTab,  [this.state.questions[this.state.qnr-1],
                this.state.qnr,
@@ -75,7 +75,6 @@ export default class Hardcore extends Component {
                this.state.answers[this.state.qnr-1][4]
               ]]})
           }
-
 
             this.setState(prev=>{
               return {
@@ -162,7 +161,6 @@ if (!localStorage.maxSurvival) {
             e,
            this.state.answers[0][4]
           ]]})
-        // console.log('answersTab', [this.state.questions[this.state.qnr-1]])
       } else {
         this.setState({answersTab: [...this.state.answersTab,  [this.state.questions[this.state.qnr-1],
            this.state.qnr,
@@ -170,8 +168,6 @@ if (!localStorage.maxSurvival) {
            this.state.answers[this.state.qnr-1][4]
           ]]})
       }
-
-      // console.log(this.state.answersTab)
 
       this.reset(); 
       this.setState(prev=>{
@@ -212,7 +208,6 @@ if (!localStorage.maxSurvival) {
 }
 
 answers = (e)=>{
-  // alert(this.state.showAnswers)
   this.setState({showAnswers: !this.state.showAnswers})
 }
 
@@ -278,6 +273,7 @@ answers = (e)=>{
 <button id='showAnswers' onClick={e=>{this.answers()}} >see the answers</button>
 
 {this.state.showAnswers && <Answers ans={this.answers} ansT={this.state.answersTab} />}
+
       <div  >
         <div id="score" >your score is {this.state.score}</div>
         <button onClick={e=>{this.setState({qnr: 1});  this.setState({width: 0}); this.setState({time: 10}) ;this.state.losuj(); this.setState({score: 0}); this.setState({lives:3}); 
