@@ -26,6 +26,7 @@
 
 .answers{
     width: 50%;
+    max-width: 645px;;
     min-width: 250px;
     margin-bottom: 30px;
     margin-inline: auto;
@@ -56,6 +57,7 @@
     }
 
     .Q{
+        position: relative;
     margin-top: 0;
     width: 100%
     }

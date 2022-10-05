@@ -13,7 +13,7 @@ export default function Answers(props) {
         <div className='answers' key={i}>
         <div className='Q'>
         <b style={{color: 'orange'}}>{i+1}.</b> {props.ansT[i][0]}</div>
-        <div >your answer: 
+        <div >your answer:&nbsp;
         <b style={{color: props.ansT[i][2]===props.ansT[i][3] ? 'lime' : 'red'}}
         >{props.ansT[i][2]}</b>
         </div>
