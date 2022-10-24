@@ -1,3 +1,10 @@
+#React Quiz
+
+This is an app written using React JS and the SCSS syntax of Sass preprocessor. 
+It offers two game modes and saves the score in the local storage. 
+The questions as well as the answers are taken from Firebase databse so no one can cheat by checking them in the code. 
+The app is based on both class and function components.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
