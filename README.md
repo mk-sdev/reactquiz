@@ -1,4 +1,5 @@
 # React Quiz
+## GitHub pages link: https://mkaletaa.github.io/reactquiz/
 
 This is an app written using React JS and the SCSS syntax of Sass preprocessor. 
 It offers two game modes and saves the score in the local storage. 
